@@ -9,9 +9,17 @@
     "dashboard": "Tableau de bord",
     "employees": "Employés",
     "payroll": "Paie",
+    "payments": "Paiements",
     "aiChat": "Chat IA",
     "brandSubtitle": "Paie fintech",
-    "mainNavigation": "Navigation principale"
+    "mainNavigation": "Navigation principale",
+    "short": {
+      "dashboard": "Accueil",
+      "employees": "Equipe",
+      "payroll": "Paie",
+      "payments": "Payer",
+      "aiChat": "IA"
+    }
   },
   "auth": {
     "loginEyebrow": "Bon retour",
@@ -44,6 +52,26 @@
     "title": "Exécutez la paie, gérez les équipes et obtenez l'aide de l'IA sans exposer de secrets.",
     "description": "SmartPayRW garde le code du navigateur propre : authentification, données des employés, données de paie et requêtes IA passent par les API backend configurées avec VITE_API_URL.",
     "cta": "Demander à l'assistant IA",
+    "paymentCta": "Demander un paiement",
+    "loading": "Chargement des analyses...",
+    "demoNotice": "Les données live du tableau de bord sont indisponibles, SmartPayRW affiche donc des analyses simulées.",
+    "analyticsLabel": "Analyses de paie",
+    "analytics": {
+      "totalPayroll": "Paie totale",
+      "totalPayrollCaption": "Paie brute suivie sur cette période.",
+      "totalEmployees": "Employés totaux",
+      "totalEmployeesCaption": "Personnes actives dans l'espace de travail.",
+      "taxes": "Taxes",
+      "taxesCaption": "Estimations PAYE et taxes statutaires.",
+      "payments": "Paiements",
+      "paymentsCaption": "Paiements mobile money et paie."
+    },
+    "charts": {
+      "payrollTrendEyebrow": "Tendance paie",
+      "payrollTrend": "Evolution mensuelle de la paie",
+      "cashflowEyebrow": "Taxes et paiements",
+      "cashflow": "Répartition du flux de trésorerie"
+    },
     "readinessLabel": "Préparation de l'intégration frontend",
     "readiness": {
       "authTitle": "Authentification",
@@ -78,6 +106,39 @@
     "emptyMessage": "Les cycles de paie terminés apparaîtront ici.",
     "defaultRun": "Cycle de paie"
   },
+  "payments": {
+    "eyebrow": "Mobile money",
+    "title": "Demander un paiement",
+    "description": "Commencez par une simulation, validez le flux de test, puis connectez les API marchands lorsque l'équipe est prête.",
+    "providers": {
+      "mtn": "MTN Mobile Money",
+      "airtel": "Airtel Money"
+    },
+    "amount": "Montant",
+    "amountPlaceholder": "Saisir le montant",
+    "phone": "Numéro de téléphone",
+    "phonePlaceholder": "07XXXXXXXX",
+    "submit": "Envoyer le paiement",
+    "submitting": "Envoi de la demande...",
+    "validation": "Saisissez un montant et un numéro de téléphone valide.",
+    "simulationNotice": "La demande de paiement live a échoué, elle a donc été traitée en simulation.",
+    "simulationMessage": "Simulation créée. Utilisez ce flux de test avant d'activer les paiements live.",
+    "summaryLabel": "Montant du paiement",
+    "summaryCopy": "Le client reçoit une demande de paiement du fournisseur sélectionné.",
+    "statuses": {
+      "requested": "Demandé",
+      "simulation": "Simulation",
+      "pending": "En attente",
+      "success": "Réussi",
+      "failed": "Échoué"
+    },
+    "result": {
+      "status": "Statut",
+      "reference": "Référence",
+      "provider": "Fournisseur",
+      "amount": "Montant"
+    }
+  },
   "chat": {
     "initialMessage": "Bonjour, je suis votre assistant SmartPayRW. Posez-moi des questions sur les cycles de paie, les employés, les taxes ou les workflows de conformité.",
     "eyebrow": "Intégration IA côté backend uniquement",
@@ -88,12 +149,34 @@
     "placeholder": "Posez une question sur les calculs de paie, les employés, PAYE ou la conformité...",
     "send": "Envoyer le message",
     "sending": "Envoi...",
+    "retry": "Réessayer",
     "typing": "L'assistant écrit",
+    "tinDetected": "TIN détecté",
     "suggestionsLabel": "Suggestions de questions",
     "suggestions": {
-      "taxes": "Calculer les taxes sur la paie",
-      "tin": "Vérifier les obligations TIN de l'entreprise",
-      "payroll": "Comment gérer la paie des employés ?"
+      "companyPayroll": "Calculer la paie de mon entreprise",
+      "taxes": "Quelles taxes dois-je payer ?",
+      "tin": "Vérifier le TIN de mon entreprise",
+      "employees": "Comment gérer les employés ?"
+    },
+    "cards": {
+      "companyInfo": "Infos entreprise",
+      "payrollExposure": "Exposition paie",
+      "payrollBreakdown": "Détail de paie",
+      "tin": "TIN",
+      "employeeCount": "Employés",
+      "averageSalary": "Salaire moyen",
+      "grossSalary": "Salaire brut",
+      "grossPayroll": "Paie brute",
+      "paye": "PAYE",
+      "pension": "Pension employé",
+      "maternity": "Contribution maternité",
+      "cbhi": "CBHI",
+      "employeeDeductions": "Retenues employé",
+      "employerContributions": "Contributions employeur",
+      "netPay": "Salaire net",
+      "totalRemittance": "Remise totale",
+      "employerCost": "Coût employeur"
     },
     "backendError": "Impossible de joindre l'endpoint IA du backend.",
     "fallback": "Impossible de joindre le service IA backend de SmartPayRW. Veuillez réessayer bientôt.",

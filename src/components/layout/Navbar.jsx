@@ -8,12 +8,12 @@ export default function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <header className="navbar">
-      <div>
+    <header className="navbar flex-col items-start md:flex-row md:items-center">
+      <div className="min-w-0">
         <p className="eyebrow">{t("app.workspace")}</p>
         <h1>{t("app.commandCenter")}</h1>
       </div>
-      <div className="navbar__actions">
+      <div className="navbar__actions w-full md:w-auto">
         <span className="navbar__user">{user?.name || user?.email || t("app.authenticatedUser")}</span>
         <button type="button" className="button button--ghost" onClick={logout}>
           {t("auth.signOut")}

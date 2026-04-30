@@ -9,9 +9,17 @@
     "dashboard": "Dashibodi",
     "employees": "Wafanyakazi",
     "payroll": "Mishahara",
+    "payments": "Malipo",
     "aiChat": "Gumzo la AI",
     "brandSubtitle": "Mishahara ya fintech",
-    "mainNavigation": "Urambazaji mkuu"
+    "mainNavigation": "Urambazaji mkuu",
+    "short": {
+      "dashboard": "Nyumbani",
+      "employees": "Watu",
+      "payroll": "Mshahara",
+      "payments": "Malipo",
+      "aiChat": "AI"
+    }
   },
   "auth": {
     "loginEyebrow": "Karibu tena",
@@ -44,6 +52,26 @@
     "title": "Endesha mishahara, simamia watu, na pata msaada wa AI bila kufichua siri.",
     "description": "SmartPayRW huweka msimbo wa kivinjari safi: uthibitishaji, data ya wafanyakazi, data ya mishahara, na maombi ya AI yote hupitia API za backend zilizosanidiwa na VITE_API_URL.",
     "cta": "Muulize msaidizi wa AI",
+    "paymentCta": "Omba malipo",
+    "loading": "Inapakia takwimu...",
+    "demoNotice": "Data halisi ya dashibodi haipatikani, kwa hivyo SmartPayRW inaonyesha takwimu za majaribio.",
+    "analyticsLabel": "Takwimu za mishahara",
+    "analytics": {
+      "totalPayroll": "Jumla ya mishahara",
+      "totalPayrollCaption": "Mishahara ghafi ya kipindi hiki.",
+      "totalEmployees": "Jumla ya wafanyakazi",
+      "totalEmployeesCaption": "Wafanyakazi hai kwenye sehemu ya kazi.",
+      "taxes": "Kodi",
+      "taxesCaption": "Makadirio ya PAYE na kodi za kisheria.",
+      "payments": "Malipo",
+      "paymentsCaption": "Malipo ya mobile money na mishahara."
+    },
+    "charts": {
+      "payrollTrendEyebrow": "Mwelekeo wa mishahara",
+      "payrollTrend": "Mabadiliko ya mishahara kwa mwezi",
+      "cashflowEyebrow": "Kodi na malipo",
+      "cashflow": "Mgawanyo wa mtiririko wa fedha"
+    },
     "readinessLabel": "Utayari wa muunganisho wa frontend",
     "readiness": {
       "authTitle": "Uthibitishaji",
@@ -78,6 +106,39 @@
     "emptyMessage": "Mizunguko ya mishahara iliyokamilika itaonekana hapa.",
     "defaultRun": "Mzunguko wa mishahara"
   },
+  "payments": {
+    "eyebrow": "Mobile money",
+    "title": "Omba malipo",
+    "description": "Anza na uigaji, thibitisha mtiririko wa majaribio, kisha unganisha API za wafanyabiashara mkiwa tayari.",
+    "providers": {
+      "mtn": "MTN Mobile Money",
+      "airtel": "Airtel Money"
+    },
+    "amount": "Kiasi",
+    "amountPlaceholder": "Weka kiasi",
+    "phone": "Nambari ya simu",
+    "phonePlaceholder": "07XXXXXXXX",
+    "submit": "Tuma malipo",
+    "submitting": "Inatuma ombi...",
+    "validation": "Weka kiasi na nambari sahihi ya simu.",
+    "simulationNotice": "Ombi halisi la malipo limeshindikana, hivyo limetumika kama jaribio.",
+    "simulationMessage": "Jaribio limeundwa. Tumia mtiririko huu kabla ya kuwasha malipo halisi.",
+    "summaryLabel": "Kiasi cha malipo",
+    "summaryCopy": "Mteja hupokea ombi la kulipa kutoka kwa mtoa huduma aliyechaguliwa.",
+    "statuses": {
+      "requested": "Limeombwa",
+      "simulation": "Jaribio",
+      "pending": "Linasubiri",
+      "success": "Limefanikiwa",
+      "failed": "Limeshindikana"
+    },
+    "result": {
+      "status": "Hali",
+      "reference": "Rejeleo",
+      "provider": "Mtoa huduma",
+      "amount": "Kiasi"
+    }
+  },
   "chat": {
     "initialMessage": "Habari, mimi ni msaidizi wako wa SmartPayRW. Niulize kuhusu mizunguko ya mishahara, rekodi za wafanyakazi, kodi, au taratibu za kufuata sheria.",
     "eyebrow": "Muunganisho wa AI kupitia backend pekee",
@@ -88,12 +149,34 @@
     "placeholder": "Uliza kuhusu mahesabu ya mishahara, wafanyakazi, PAYE, au kufuata sheria...",
     "send": "Tuma ujumbe",
     "sending": "Inatuma...",
+    "retry": "Jaribu tena",
     "typing": "Msaidizi anaandika",
+    "tinDetected": "TIN imetambuliwa",
     "suggestionsLabel": "Mapendekezo ya maswali",
     "suggestions": {
-      "taxes": "Hesabu kodi za mishahara",
-      "tin": "Kagua wajibu wa TIN wa kampuni",
-      "payroll": "Jinsi ya kusimamia mishahara ya wafanyakazi?"
+      "companyPayroll": "Hesabu mishahara ya kampuni yangu",
+      "taxes": "Ninalipa kodi gani?",
+      "tin": "Kagua TIN ya kampuni yangu",
+      "employees": "Jinsi ya kusimamia wafanyakazi?"
+    },
+    "cards": {
+      "companyInfo": "Taarifa za kampuni",
+      "payrollExposure": "Makadirio ya mishahara",
+      "payrollBreakdown": "Mchanganuo wa mishahara",
+      "tin": "TIN",
+      "employeeCount": "Wafanyakazi",
+      "averageSalary": "Wastani wa mshahara",
+      "grossSalary": "Mshahara ghafi",
+      "grossPayroll": "Mishahara ghafi",
+      "paye": "PAYE",
+      "pension": "Pensheni ya mfanyakazi",
+      "maternity": "Mchango wa uzazi",
+      "cbhi": "CBHI",
+      "employeeDeductions": "Makato ya mfanyakazi",
+      "employerContributions": "Michango ya mwajiri",
+      "netPay": "Mshahara halisi",
+      "totalRemittance": "Jumla ya kutuma",
+      "employerCost": "Gharama ya mwajiri"
     },
     "backendError": "Imeshindikana kufikia endpoint ya AI ya backend.",
     "fallback": "Imeshindikana kufikia huduma ya AI ya backend ya SmartPayRW. Tafadhali jaribu tena hivi karibuni.",

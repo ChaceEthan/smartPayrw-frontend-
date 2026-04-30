@@ -9,9 +9,17 @@
     "dashboard": "Dashboard",
     "employees": "Employees",
     "payroll": "Payroll",
+    "payments": "Payments",
     "aiChat": "AI Chat",
     "brandSubtitle": "Fintech payroll",
-    "mainNavigation": "Main navigation"
+    "mainNavigation": "Main navigation",
+    "short": {
+      "dashboard": "Home",
+      "employees": "People",
+      "payroll": "Pay",
+      "payments": "Cash",
+      "aiChat": "AI"
+    }
   },
   "auth": {
     "loginEyebrow": "Welcome back",
@@ -44,6 +52,26 @@
     "title": "Run payroll, manage people, and get AI help without exposing secrets.",
     "description": "SmartPayRW keeps browser code clean: authentication, employee data, payroll data, and AI requests all flow through backend APIs configured by VITE_API_URL.",
     "cta": "Ask the AI assistant",
+    "paymentCta": "Request payment",
+    "loading": "Loading analytics...",
+    "demoNotice": "Live dashboard data is unavailable, so SmartPayRW is showing simulated analytics.",
+    "analyticsLabel": "Payroll analytics",
+    "analytics": {
+      "totalPayroll": "Total Payroll",
+      "totalPayrollCaption": "Gross payroll tracked this period.",
+      "totalEmployees": "Total Employees",
+      "totalEmployeesCaption": "Active people in the workspace.",
+      "taxes": "Taxes",
+      "taxesCaption": "PAYE and statutory tax estimates.",
+      "payments": "Payments",
+      "paymentsCaption": "Mobile money and payroll payouts."
+    },
+    "charts": {
+      "payrollTrendEyebrow": "Payroll trend",
+      "payrollTrend": "Monthly payroll movement",
+      "cashflowEyebrow": "Taxes and payments",
+      "cashflow": "Cashflow split"
+    },
     "readinessLabel": "Frontend integration readiness",
     "readiness": {
       "authTitle": "Authentication",
@@ -78,6 +106,39 @@
     "emptyMessage": "Completed payroll runs will appear here.",
     "defaultRun": "Payroll run"
   },
+  "payments": {
+    "eyebrow": "Mobile money",
+    "title": "Request payment",
+    "description": "Start with simulation, confirm the test flow, then connect merchant APIs when operations are ready.",
+    "providers": {
+      "mtn": "MTN Mobile Money",
+      "airtel": "Airtel Money"
+    },
+    "amount": "Amount",
+    "amountPlaceholder": "Enter amount",
+    "phone": "Phone number",
+    "phonePlaceholder": "07XXXXXXXX",
+    "submit": "Submit payment",
+    "submitting": "Sending request...",
+    "validation": "Enter an amount and a valid phone number.",
+    "simulationNotice": "Live payment request failed, so this was handled as a simulation.",
+    "simulationMessage": "Simulation created. Use this test flow before activating live merchant payments.",
+    "summaryLabel": "Payment amount",
+    "summaryCopy": "The customer receives a payment prompt from the selected provider.",
+    "statuses": {
+      "requested": "Requested",
+      "simulation": "Simulation",
+      "pending": "Pending",
+      "success": "Successful",
+      "failed": "Failed"
+    },
+    "result": {
+      "status": "Status",
+      "reference": "Reference",
+      "provider": "Provider",
+      "amount": "Amount"
+    }
+  },
   "chat": {
     "initialMessage": "Hi, I am your SmartPayRW assistant. Ask me about payroll runs, employee records, taxes, or compliance workflows.",
     "eyebrow": "Backend-only AI integration",
@@ -88,12 +149,34 @@
     "placeholder": "Ask about payroll calculations, employees, PAYE, or compliance...",
     "send": "Send message",
     "sending": "Sending...",
+    "retry": "Retry",
     "typing": "Assistant is typing",
+    "tinDetected": "TIN detected",
     "suggestionsLabel": "Prompt suggestions",
     "suggestions": {
-      "taxes": "Calculate payroll taxes",
-      "tin": "Check company TIN obligations",
-      "payroll": "How to manage employee payroll?"
+      "companyPayroll": "Calculate payroll for my company",
+      "taxes": "What taxes do I pay?",
+      "tin": "Check my company TIN",
+      "employees": "How to manage employees?"
+    },
+    "cards": {
+      "companyInfo": "Company info",
+      "payrollExposure": "Payroll exposure",
+      "payrollBreakdown": "Payroll breakdown",
+      "tin": "TIN",
+      "employeeCount": "Employees",
+      "averageSalary": "Average salary",
+      "grossSalary": "Gross salary",
+      "grossPayroll": "Gross payroll",
+      "paye": "PAYE",
+      "pension": "Employee pension",
+      "maternity": "Maternity benefit",
+      "cbhi": "CBHI",
+      "employeeDeductions": "Employee deductions",
+      "employerContributions": "Employer contributions",
+      "netPay": "Net pay",
+      "totalRemittance": "Total remittance",
+      "employerCost": "Employer cost"
     },
     "backendError": "Unable to reach the backend AI endpoint.",
     "fallback": "I could not reach the SmartPayRW backend AI service. Please try again shortly.",
