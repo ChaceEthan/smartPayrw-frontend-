@@ -89,12 +89,18 @@ code {
 .brand__mark {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: #c9ef6f;
-  color: #17211a;
-  font-weight: 800;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.24);
+  overflow: hidden;
+}
+
+.brand__mark-image {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar__nav {
@@ -104,6 +110,7 @@ code {
 
 .sidebar__nav a {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: flex-start;
   padding: 12px 14px;
@@ -120,6 +127,10 @@ code {
 }
 
 .nav-label--short {
+  display: none;
+}
+
+.mobile-nav {
   display: none;
 }
 
@@ -156,6 +167,18 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.navbar__identity {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  text-align: right;
+}
+
+.navbar__identity small {
+  color: #596452;
+  font-weight: 800;
 }
 
 .language-switcher {
@@ -280,6 +303,17 @@ code {
   margin-bottom: 0;
 }
 
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: rgba(201, 239, 111, 0.24);
+  color: #17211a;
+}
+
 .chart-panel {
   min-width: 0;
   padding: 22px;
@@ -290,8 +324,175 @@ code {
   font-size: 1.16rem;
 }
 
+.pension-panel,
+.compliance-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.pension-panel h3,
+.compliance-panel h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.pension-breakdown,
+.compliance-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.pension-breakdown div,
+.compliance-card {
+  min-width: 0;
+  border: 1px solid rgba(23, 33, 26, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(255, 253, 245, 0.78);
+}
+
+.pension-breakdown span,
+.compliance-note {
+  color: #596452;
+  font-weight: 800;
+}
+
+.pension-breakdown strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.45rem;
+}
+
+.pension-breakdown small {
+  display: inline-block;
+  margin-top: 6px;
+  color: #596452;
+  font-weight: 800;
+}
+
+.compliance-card h4 {
+  margin: 0 0 8px;
+}
+
+.compliance-card p {
+  margin: 0;
+  color: #33402f;
+}
+
+.compliance-note {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(201, 239, 111, 0.18);
+}
+
 .section-heading {
   margin-bottom: 22px;
+}
+
+.company-page,
+.employees-page {
+  max-width: 1180px;
+}
+
+.company-hero,
+.employees-hero {
+  max-width: none;
+}
+
+.company-layout,
+.employees-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.28fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.company-form,
+.employee-form,
+.employees-list,
+.company-profile {
+  display: grid;
+  gap: 14px;
+}
+
+.company-submit,
+.employee-submit {
+  width: fit-content;
+}
+
+.detail-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid rgba(23, 33, 26, 0.1);
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(255, 253, 245, 0.76);
+}
+
+.detail-item .card-icon {
+  margin-bottom: 0;
+}
+
+.detail-item span,
+.company-summary-card span {
+  color: #596452;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.detail-item strong,
+.company-summary-card strong {
+  display: block;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.company-summary-card {
+  display: grid;
+  grid-template-columns: 40px repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+  align-items: center;
+  max-width: 760px;
+  margin-top: 18px;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(240, 253, 250, 0.82);
+}
+
+.company-summary-card .card-icon {
+  margin-bottom: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(24, 160, 88, 0.2));
+}
+
+.company-empty-note {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 18px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(14, 165, 233, 0.1);
+  color: #24534d;
+  font-weight: 800;
+}
+
+.salary-cell {
+  white-space: nowrap;
+  font-weight: 800;
 }
 
 .auth-page {
@@ -328,7 +529,8 @@ label {
 }
 
 textarea,
-input {
+input,
+select {
   width: 100%;
   border: 1px solid rgba(23, 33, 26, 0.16);
   border-radius: 16px;
@@ -605,6 +807,32 @@ input {
   gap: 10px;
 }
 
+.structured-card--company {
+  border-bottom: 1px solid rgba(23, 33, 26, 0.1);
+  padding-bottom: 12px;
+}
+
+.employee-preview-list {
+  display: grid;
+  gap: 8px;
+}
+
+.employee-preview-list div {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  border: 1px solid rgba(23, 33, 26, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(255, 253, 245, 0.72);
+}
+
+.employee-preview-list span {
+  color: #596452;
+  font-weight: 800;
+  text-align: right;
+}
+
 .typing-indicator {
   display: inline-flex;
   gap: 5px;
@@ -755,6 +983,11 @@ td {
   color: #823014;
 }
 
+.alert--success {
+  background: #dcfce7;
+  color: #14532d;
+}
+
 .alert__action {
   flex: 0 0 auto;
   border-color: rgba(130, 48, 20, 0.26);
@@ -830,7 +1063,7 @@ td {
     z-index: 10;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     padding: 10px 12px;
   }
@@ -842,39 +1075,35 @@ td {
   .brand__mark {
     width: 42px;
     height: 42px;
-    border-radius: 12px;
+    border-radius: 999px;
   }
 
   .brand__text {
     display: none;
   }
 
+  .mobile-nav {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+    color: #dbe7d2;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav select {
+    width: 100%;
+    border: 1px solid rgba(201, 239, 111, 0.22);
+    border-radius: 14px;
+    padding: 10px 14px;
+    background: #fffdf5;
+    color: #17211a;
+    font-weight: 800;
+  }
+
   .sidebar__nav {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-
-  .sidebar__nav::-webkit-scrollbar {
     display: none;
-  }
-
-  .sidebar__nav a {
-    flex: 0 0 auto;
-    justify-content: center;
-    min-width: 58px;
-    min-height: 46px;
-    padding: 10px 12px;
-  }
-
-  .nav-label--full {
-    display: none;
-  }
-
-  .nav-label--short {
-    display: inline;
   }
 
   .navbar {
@@ -890,6 +1119,11 @@ td {
   .navbar__actions {
     justify-content: flex-start;
     width: 100%;
+  }
+
+  .navbar__identity {
+    width: 100%;
+    text-align: left;
   }
 
   .navbar__user {
@@ -925,8 +1159,19 @@ td {
   }
 
   .dashboard-hero__action,
+  .company-submit,
+  .employee-submit,
   .payment-submit {
     width: 100%;
+  }
+
+  .company-layout,
+  .employees-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .company-summary-card {
+    grid-template-columns: 1fr;
   }
 
   .tin-analyzer__controls {
@@ -934,6 +1179,16 @@ td {
   }
 
   .provider-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-card strong,
+  .pension-breakdown strong {
+    font-size: 1.45rem;
+  }
+
+  .pension-breakdown,
+  .compliance-grid {
     grid-template-columns: 1fr;
   }
 
@@ -951,6 +1206,14 @@ td {
 
   .structured-grid {
     grid-template-columns: 1fr;
+  }
+
+  .employee-preview-list div {
+    display: grid;
+  }
+
+  .employee-preview-list span {
+    text-align: left;
   }
 }
 

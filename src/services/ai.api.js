@@ -19,6 +19,7 @@ export function sendChatMessage(message, history = [], options = {}) {
     context: PAYROLL_CONTEXT_LABEL,
     timestamp: options.timestamp || new Date().toISOString(),
     userSession: options.userSession || null,
+    companyContext: options.companyContext || null,
     systemPrompt: SMARTPAY_SYSTEM_PROMPT,
     language: options.language || "en",
     payrollContext: buildPayrollAiContext(options.tinAnalysis),

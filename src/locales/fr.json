@@ -10,14 +10,19 @@
     "employees": "Employés",
     "payroll": "Paie",
     "payments": "Paiements",
+    "pension": "Pension",
+    "reports": "Rapports",
     "aiChat": "Chat IA",
     "brandSubtitle": "Paie fintech",
     "mainNavigation": "Navigation principale",
+    "mobileMenu": "Choisir une page",
     "short": {
       "dashboard": "Accueil",
       "employees": "Equipe",
       "payroll": "Paie",
       "payments": "Payer",
+      "pension": "RSSB",
+      "reports": "Rapports",
       "aiChat": "IA"
     }
   },
@@ -48,9 +53,9 @@
     "restoringSession": "Restauration de votre session..."
   },
   "dashboard": {
-    "eyebrow": "Paie prête pour la production",
-    "title": "Exécutez la paie, gérez les équipes et obtenez l'aide de l'IA sans exposer de secrets.",
-    "description": "SmartPayRW garde le code du navigateur propre : authentification, données des employés, données de paie et requêtes IA passent par les API backend configurées avec VITE_API_URL.",
+    "eyebrow": "Tableau de bord",
+    "title": "Gérez employés, paie, taxes, paiements et pension au même endroit.",
+    "description": "SmartPayRW aide votre entreprise à gérer la paie rwandaise clairement et à temps.",
     "cta": "Demander à l'assistant IA",
     "paymentCta": "Demander un paiement",
     "loading": "Chargement des analyses...",
@@ -62,9 +67,11 @@
       "totalEmployees": "Employés totaux",
       "totalEmployeesCaption": "Personnes actives dans l'espace de travail.",
       "taxes": "Taxes",
-      "taxesCaption": "Estimations PAYE et taxes statutaires.",
+      "taxesCaption": "Taxes à prévoir, y compris PAYE et RSSB.",
       "payments": "Paiements",
-      "paymentsCaption": "Paiements mobile money et paie."
+      "paymentsCaption": "Paiements terminés et prévus.",
+      "pension": "Pension (RSSB)",
+      "pensionCaption": "Employé {{employeeRate}}, employeur {{employerRate}}"
     },
     "charts": {
       "payrollTrendEyebrow": "Tendance paie",
@@ -72,14 +79,34 @@
       "cashflowEyebrow": "Taxes et paiements",
       "cashflow": "Répartition du flux de trésorerie"
     },
-    "readinessLabel": "Préparation de l'intégration frontend",
+    "pension": {
+      "eyebrow": "Pension",
+      "title": "Pension RSSB",
+      "description": "Suivez les montants de pension, les taux et la part employé/employeur.",
+      "employeeShare": "Part employé",
+      "employerShare": "Part employeur",
+      "total": "Pension totale"
+    },
+    "compliance": {
+      "eyebrow": "Conformité",
+      "title": "Règles et échéances",
+      "description": "Rappels simples pour la paie au Rwanda.",
+      "payeTitle": "PAYE",
+      "payeText": "Le PAYE est retenu sur le salaire des employés et payé à la RRA.",
+      "rssbTitle": "RSSB",
+      "rssbText": "La pension RSSB utilise une part employé {{employeeRate}} et employeur {{employerRate}}.",
+      "deadlineTitle": "Échéance",
+      "deadlineText": "Les taxes doivent être payées avant le 15 de chaque mois.",
+      "note": "Confirmez les chiffres avant de soumettre les déclarations."
+    },
+    "readinessLabel": "Préparation de l'espace de travail",
     "readiness": {
       "authTitle": "Authentification",
-      "authDescription": "Les formulaires de connexion et d'inscription sont reliés aux endpoints d'authentification backend.",
+      "authDescription": "Votre équipe peut se connecter et utiliser l'espace en sécurité.",
       "routesTitle": "Routes protégées",
-      "routesDescription": "Les pages fintech principales exigent une session JWT persistée avant l'accès.",
-      "aiTitle": "IA backend",
-      "aiDescription": "Le chat IA envoie les messages uniquement via l'endpoint d'intégration backend."
+      "routesDescription": "Les pages métier restent protégées tant que l'utilisateur n'est pas connecté.",
+      "aiTitle": "Assistant",
+      "aiDescription": "L'assistant aide pour la paie, les employés, les taxes et la conformité."
     }
   },
   "employees": {
@@ -105,6 +132,28 @@
     "emptyTitle": "Aucun dossier de paie",
     "emptyMessage": "Les cycles de paie terminés apparaîtront ici.",
     "defaultRun": "Cycle de paie"
+  },
+  "pension": {
+    "eyebrow": "RSSB",
+    "title": "Pension employés",
+    "description": "Suivez les contributions pension employé et employeur avant déclaration.",
+    "employeeShare": "Part employé",
+    "employeeCaption": "L'employé contribue {{rate}} du salaire brut.",
+    "employerShare": "Part employeur",
+    "employerCaption": "L'employeur contribue {{rate}} du salaire brut.",
+    "total": "Total",
+    "totalCaption": "Montant pension total à prévoir."
+  },
+  "reports": {
+    "eyebrow": "Rapports",
+    "title": "Rapports de paie",
+    "description": "Préparez des rapports clairs sur paie, taxes, pension et paiements.",
+    "payrollTitle": "Rapport de paie",
+    "payrollText": "Vérifiez les montants payés, les employés et les périodes.",
+    "complianceTitle": "Rapport fiscal",
+    "complianceText": "Vérifiez PAYE, RSSB et les montants dus avant le 15.",
+    "paymentTitle": "Rapport paiements",
+    "paymentText": "Suivez les paiements mobile money ou autres canaux."
   },
   "payments": {
     "eyebrow": "Mobile money",
@@ -141,9 +190,9 @@
   },
   "chat": {
     "initialMessage": "Bonjour, je suis votre assistant SmartPayRW. Posez-moi des questions sur les cycles de paie, les employés, les taxes ou les workflows de conformité.",
-    "eyebrow": "Intégration IA côté backend uniquement",
+    "eyebrow": "Assistant SmartPayRW",
     "title": "Chat IA",
-    "description": "Le frontend envoie les messages uniquement vers POST /api/ai/chat. Les clés des fournisseurs restent sur le backend.",
+    "description": "Posez vos questions sur la paie, les employés, les taxes, la pension ou la conformité au Rwanda.",
     "assistant": "Assistant",
     "you": "Vous",
     "placeholder": "Posez une question sur les calculs de paie, les employés, PAYE ou la conformité...",
@@ -178,11 +227,11 @@
       "totalRemittance": "Remise totale",
       "employerCost": "Coût employeur"
     },
-    "backendError": "Impossible de joindre l'endpoint IA du backend.",
-    "fallback": "Impossible de joindre le service IA backend de SmartPayRW. Veuillez réessayer bientôt.",
+    "backendError": "Impossible de joindre l'assistant SmartPayRW.",
+    "fallback": "Impossible de joindre l'assistant SmartPayRW. Veuillez réessayer bientôt.",
     "emptyResponse": "Le service IA a répondu, mais aucun contenu de message n'a été renvoyé.",
     "local": {
-      "backendNotice": "L'IA backend est indisponible ; SmartPayRW a généré une guidance paie locale.",
+      "backendNotice": "L'assistant est indisponible ; SmartPayRW a généré une guidance de test.",
       "taxAnswer": "Pour un salaire brut mensuel de {{gross}}, les retenues estimées sont :\nPAYE : {{paye}}\nPension employé : {{pension}}\nContribution maternité : {{maternity}}\nCBHI : {{cbhi}}\nSalaire net estimé : {{net}}\nContributions patronales : {{employer}}\nRemise mensuelle totale à prévoir : {{remittance}}\n\nCe calcul utilise les tranches PAYE rwandaises et des hypothèses de contributions statutaires. Confirmez les cas particuliers comme les avantages en nature, le second emploi, les exonérations ou une couverture médicale spéciale avant déclaration.",
       "obligationsAnswer": "Les obligations de l'employeur au Rwanda incluent généralement l'inscription PAYE, la retenue du PAYE des employés, la retenue des contributions pension et maternité employé, la collecte du CBHI sur le salaire net, le paiement des contributions patronales pension, maternité et risques professionnels, la gestion de la contribution médicale RSSB lorsqu'elle s'applique, les déclarations unifiées PAYE/RSSB et la conservation des preuves de paie.",
       "runPayrollAnswer": "Pour exécuter correctement la paie : validez les données employés et les avantages imposables, calculez le revenu brut imposable, appliquez les tranches PAYE rwandaises, déduisez pension, maternité et CBHI côté employé, ajoutez les obligations RSSB employeur, rapprochez les totaux, déclarez PAYE/RSSB à temps, payez via les canaux officiels et conservez bulletins plus reçus.",
@@ -193,7 +242,7 @@
   "tin": {
     "eyebrow": "Intelligence TIN",
     "title": "Analyse du TIN de l'entreprise",
-    "description": "Analysez un TIN d'entreprise pour les obligations de paie, les passifs possibles et l'exposition mensuelle estimée. Si aucun endpoint réel n'est disponible, SmartPayRW simule des données réalistes de planification.",
+    "description": "Analysez un TIN d'entreprise pour les obligations de paie, les passifs possibles et l'exposition mensuelle estimée. Si les données live sont indisponibles, SmartPayRW affiche des données réalistes de planification.",
     "inputLabel": "Numéro TIN de l'entreprise",
     "placeholder": "Saisir le TIN à 9 chiffres",
     "analyze": "Analyser le TIN",
@@ -213,7 +262,7 @@
       "high": "Élevé"
     },
     "source": {
-      "backend": "Backend",
+      "backend": "Données live",
       "simulation": "Simulation"
     },
     "metrics": {

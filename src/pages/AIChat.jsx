@@ -1,16 +1,23 @@
 // @ts-nocheck
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useAuth from "../hooks/useAuth.js";
+import { getApiErrorMessage } from "../services/api.js";
 import { extractAssistantReply, sendChatMessage } from "../services/ai.api.js";
+import { getEmployeesRequest } from "../services/employees.api.js";
 import { analyzeTinRequest } from "../services/tin.api.js";
 import {
-  buildLocalPayrollResponse,
-  calculatePayrollForSalary,
-  extractSalaryFromMessage,
   formatRwf,
   normalizeTin,
 } from "../utils/rwandaPayroll.js";
+import {
+  buildCompanyContext,
+  getActiveCompany,
+  getStoredEmployees,
+  hasCompany,
+  normalizeEmployees,
+  saveStoredEmployees,
+} from "../utils/companyData.js";
 
 const CHAT_SESSION_KEY = "smartpayrw.aiChatSession";
 const EMPTY_VALUE = "-";
@@ -62,7 +69,7 @@ function getOrCreateChatSessionId() {
   return sessionId;
 }
 
-function buildUserSession(user, language, sessionId) {
+function buildUserSession(user, language, sessionId, companyContext) {
   return {
     sessionId,
     language,
@@ -71,7 +78,9 @@ function buildUserSession(user, language, sessionId) {
     name: user?.name || user?.fullName || user?.displayName || null,
     email: user?.email || null,
     role: user?.role || user?.userRole || null,
-    company: user?.companyName || user?.company || user?.organization || null,
+    company: companyContext?.company || null,
+    employeeCount: companyContext?.employeeCount || 0,
+    grossPayroll: companyContext?.grossPayroll || 0,
   };
 }
 
@@ -264,11 +273,19 @@ function hasTinIntent(message) {
   return tinIntentPattern.test(String(message || ""));
 }
 
-function buildPayrollBreakdownForPrompt(message, tinAnalysis) {
+function buildPayrollBreakdownForPrompt(message, tinAnalysis, companyContext) {
   const wantsCompanyPayroll = /company|business|employer|employees|entreprise|ikigo|abakozi|kampuni|wafanyakazi/i.test(
     String(message || "")
   );
   const tinPayrollSummary = normalizePayrollData(tinAnalysis?.payrollSummary);
+
+  if (companyContext?.employeeCount > 0) {
+    return normalizePayrollData({
+      employeeCount: companyContext.employeeCount,
+      averageSalary: companyContext.averageSalary,
+      grossPayroll: companyContext.grossPayroll,
+    });
+  }
 
   if (wantsCompanyPayroll && tinPayrollSummary) {
     return {
@@ -278,12 +295,11 @@ function buildPayrollBreakdownForPrompt(message, tinAnalysis) {
     };
   }
 
-  const salary = extractSalaryFromMessage(message) || tinAnalysis?.averageSalary || 500000;
-  return normalizePayrollData(calculatePayrollForSalary(salary));
+  return null;
 }
 
 function createAssistantMessageFromResponse(data, options) {
-  const { detectedTin, fallbackMessage, requestContent, t, tinAnalysis } = options;
+  const { companyContext, detectedTin, fallbackMessage, requestContent, t, tinAnalysis } = options;
   const root = getResponseRoot(data);
   const responseType = String(root.type || root.intent || root.category || "").toLowerCase();
   const reply = extractAssistantReply(data, fallbackMessage);
@@ -295,13 +311,14 @@ function createAssistantMessageFromResponse(data, options) {
       content: reply,
       variant: "tin",
       tinData,
+      companyContext,
     });
   }
 
   const payrollData =
     normalizePayrollData(findPayrollPayload(data)) ||
     (responseType.includes("payroll") || hasPayrollIntent(requestContent)
-      ? buildPayrollBreakdownForPrompt(requestContent, tinAnalysis)
+      ? buildPayrollBreakdownForPrompt(requestContent, tinAnalysis, companyContext)
       : null);
 
   if (payrollData) {
@@ -310,6 +327,7 @@ function createAssistantMessageFromResponse(data, options) {
       content: reply,
       variant: "payroll",
       payrollData,
+      companyContext,
     });
   }
 
@@ -317,41 +335,7 @@ function createAssistantMessageFromResponse(data, options) {
     role: "assistant",
     content: reply || t("chat.emptyResponse"),
     variant: "advice",
-  });
-}
-
-function createLocalAssistantMessage({ detectedTin, requestContent, t, tinAnalysis }) {
-  const fallbackMessage = buildLocalPayrollResponse({
-    message: requestContent,
-    tinAnalysis,
-    t,
-  });
-
-  if (detectedTin && tinAnalysis) {
-    return createChatMessage({
-      role: "assistant",
-      content: fallbackMessage,
-      variant: "tin",
-      tinData: normalizeTinData(tinAnalysis, tinAnalysis),
-      isFallback: true,
-    });
-  }
-
-  if (hasPayrollIntent(requestContent)) {
-    return createChatMessage({
-      role: "assistant",
-      content: fallbackMessage,
-      variant: "payroll",
-      payrollData: buildPayrollBreakdownForPrompt(requestContent, tinAnalysis),
-      isFallback: true,
-    });
-  }
-
-  return createChatMessage({
-    role: "assistant",
-    content: fallbackMessage,
-    variant: "advice",
-    isFallback: true,
+    companyContext,
   });
 }
 
@@ -370,6 +354,12 @@ function getHistoryContent(message, t) {
 
   if (message.payrollData) {
     return `Payroll remittance: ${message.payrollData.totalRemittance || EMPTY_VALUE}`;
+  }
+
+  if (message.companyContext?.company) {
+    return `Company ${message.companyContext.company.name || EMPTY_VALUE}, TIN ${
+      message.companyContext.company.tin || EMPTY_VALUE
+    }, employees ${message.companyContext.employeeCount || 0}`;
   }
 
   return "";
@@ -485,6 +475,45 @@ function PayrollBreakdownCard({ data, t }) {
   );
 }
 
+function CompanyContextCard({ data, t }) {
+  if (!data?.company) {
+    return null;
+  }
+
+  const previewEmployees = data.employees.slice(0, 4);
+
+  return (
+    <div className="structured-card structured-card--company">
+      <h4>{t("chat.cards.companyInfo")}</h4>
+      <div className="structured-grid">
+        <DetailField label={t("company.name")} value={data.company.name} />
+        <DetailField label={t("company.tin")} value={data.company.tin} />
+        <DetailField label={t("company.businessType")} value={data.company.businessType} />
+        <DetailField label={t("chat.cards.employeeCount")} value={data.employeeCount} />
+        <DetailField label={t("chat.cards.grossPayroll")} value={formatMoney(data.grossPayroll)} />
+        <DetailField label={t("chat.cards.averageSalary")} value={formatMoney(data.averageSalary)} />
+      </div>
+
+      {previewEmployees.length > 0 && (
+        <div className="structured-card__section">
+          <h5>{t("company.employeesPreview")}</h5>
+          <div className="employee-preview-list">
+            {previewEmployees.map((employee) => (
+              <div key={employee.id || employee.email || employee.name}>
+                <strong>{employee.name || t("employees.notProvided")}</strong>
+                <span>
+                  {employee.role || t("employees.defaultRole")} -{" "}
+                  {employee.salary ? formatMoney(employee.salary) : t("employees.notProvided")}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FormattedMessageText({ text }) {
   if (!text) {
     return null;
@@ -532,6 +561,8 @@ function FormattedMessageText({ text }) {
 export default function AIChat() {
   const { i18n, t } = useTranslation();
   const { user } = useAuth();
+  const [company, setCompany] = useState(() => getActiveCompany(user));
+  const [companyEmployees, setCompanyEmployees] = useState(() => getStoredEmployees());
   const [messages, setMessages] = useState(() => [
     createChatMessage({
       role: "assistant",
@@ -549,11 +580,46 @@ export default function AIChat() {
 
   const selectedLanguage = i18n.resolvedLanguage || i18n.language || "en";
   const chatSessionId = useMemo(() => getOrCreateChatSessionId(), []);
+  const companyContext = useMemo(() => buildCompanyContext(company, companyEmployees), [company, companyEmployees]);
+  const companyKey = `${company?.id || ""}:${company?.tin || ""}:${company?.name || ""}`;
   const userSession = useMemo(
-    () => buildUserSession(user, selectedLanguage, chatSessionId),
-    [chatSessionId, selectedLanguage, user]
+    () => buildUserSession(user, selectedLanguage, chatSessionId, companyContext),
+    [chatSessionId, companyContext, selectedLanguage, user]
   );
   const canSend = useMemo(() => message.trim().length > 0 && !isSending, [isSending, message]);
+
+  useEffect(() => {
+    setCompany(getActiveCompany(user));
+  }, [user]);
+
+  useEffect(() => {
+    if (!hasCompany(company)) {
+      return undefined;
+    }
+
+    let isMounted = true;
+
+    async function loadCompanyEmployees() {
+      try {
+        const { data } = await getEmployeesRequest();
+        const loadedEmployees = saveStoredEmployees(normalizeEmployees(data));
+
+        if (isMounted) {
+          setCompanyEmployees(loadedEmployees);
+        }
+      } catch {
+        if (isMounted) {
+          setCompanyEmployees(getStoredEmployees());
+        }
+      }
+    }
+
+    loadCompanyEmployees();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [companyKey]);
 
   async function submitChatMessage(rawMessage, { appendUserMessage = true } = {}) {
     const trimmedMessage = rawMessage.trim();
@@ -579,6 +645,21 @@ export default function AIChat() {
     }
 
     setError("");
+
+    if (!hasCompany(companyContext.company)) {
+      setLastFailedRequest(null);
+      setMessages((current) => [
+        ...current,
+        createChatMessage({
+          role: "assistant",
+          content: t("chat.noCompanyMessage"),
+          variant: "advice",
+        }),
+      ]);
+      inputRef.current?.focus();
+      return;
+    }
+
     setIsSending(true);
 
     let activeTinAnalysis = tinAnalysis;
@@ -605,6 +686,7 @@ export default function AIChat() {
           timestamp: requestTimestamp,
           tinAnalysis: activeTinAnalysis,
           userSession,
+          companyContext,
         }
       );
 
@@ -614,21 +696,23 @@ export default function AIChat() {
         requestContent: trimmedMessage,
         t,
         tinAnalysis: activeTinAnalysis,
+        companyContext,
       });
 
       setLastFailedRequest(null);
       setMessages((current) => [...current, assistantMessage]);
-    } catch {
-      const fallbackAssistantMessage = createLocalAssistantMessage({
-        detectedTin,
-        requestContent: trimmedMessage,
-        t,
-        tinAnalysis: activeTinAnalysis,
-      });
-
+    } catch (err) {
       setLastFailedRequest({ message: trimmedMessage });
-      setError(t("chat.local.backendNotice"));
-      setMessages((current) => [...current, fallbackAssistantMessage]);
+      setError(getApiErrorMessage(err, t("chat.backendError")));
+      setMessages((current) => [
+        ...current,
+        createChatMessage({
+          role: "assistant",
+          content: t("chat.fallback"),
+          variant: "advice",
+          companyContext,
+        }),
+      ]);
     } finally {
       setIsSending(false);
       inputRef.current?.focus();
@@ -680,12 +764,14 @@ export default function AIChat() {
             tin: analysis.tin || tin,
             company: analysis.companyName,
             employees: analysis.employeeCount,
-            gross: formatRwf(analysis.payrollSummary.grossPayroll),
-            remittance: formatRwf(analysis.payrollSummary.totalRemittance),
-            source: t(`tin.source.${analysis.source}`),
+            gross: formatMoney(analysis.payrollSummary?.grossPayroll) || EMPTY_VALUE,
+            remittance: formatMoney(analysis.payrollSummary?.totalRemittance) || EMPTY_VALUE,
+            source: t(`tin.source.${analysis.source}`, { defaultValue: analysis.source || "backend" }),
           }),
         }),
       ]);
+    } catch (err) {
+      setError(getApiErrorMessage(err, t("tin.loadError")));
     } finally {
       setIsAnalyzingTin(false);
     }
@@ -702,10 +788,12 @@ export default function AIChat() {
 
   function renderMessageBody(item) {
     const text = item.translationKey ? t(item.translationKey) : item.content;
+    const companyCard = item.companyContext?.company ? <CompanyContextCard data={item.companyContext} t={t} /> : null;
 
     if (item.variant === "tin" && item.tinData) {
       return (
         <div className="message__body">
+          {companyCard}
           <TinResponseCard data={item.tinData} t={t} />
           <FormattedMessageText text={text} />
         </div>
@@ -715,7 +803,17 @@ export default function AIChat() {
     if (item.variant === "payroll" && item.payrollData) {
       return (
         <div className="message__body">
+          {companyCard}
           <PayrollBreakdownCard data={item.payrollData} t={t} />
+          <FormattedMessageText text={text} />
+        </div>
+      );
+    }
+
+    if (companyCard) {
+      return (
+        <div className="message__body">
+          {companyCard}
           <FormattedMessageText text={text} />
         </div>
       );
@@ -782,15 +880,15 @@ export default function AIChat() {
               </div>
               <div>
                 <span>{t("tin.status")}</span>
-                <strong>{t(`tin.statuses.${tinAnalysis.registrationStatus}`)}</strong>
+                <strong>{t(`tin.statuses.${tinAnalysis.registrationStatus}`, { defaultValue: tinAnalysis.registrationStatus || EMPTY_VALUE })}</strong>
               </div>
               <div>
                 <span>{t("tin.riskLabel")}</span>
-                <strong>{t(`tin.risk.${tinAnalysis.riskLevel}`)}</strong>
+                <strong>{t(`tin.risk.${tinAnalysis.riskLevel}`, { defaultValue: tinAnalysis.riskLevel || EMPTY_VALUE })}</strong>
               </div>
               <div>
                 <span>{t("tin.sourceLabel")}</span>
-                <strong>{t(`tin.source.${tinAnalysis.source}`)}</strong>
+                <strong>{t(`tin.source.${tinAnalysis.source}`, { defaultValue: tinAnalysis.source || EMPTY_VALUE })}</strong>
               </div>
             </div>
 
@@ -803,22 +901,22 @@ export default function AIChat() {
                   </div>
                   <div>
                     <span>{t("tin.metrics.grossPayroll")}</span>
-                    <strong>{formatRwf(tinAnalysis.payrollSummary.grossPayroll)}</strong>
+                    <strong>{formatMoney(tinAnalysis.payrollSummary?.grossPayroll) || EMPTY_VALUE}</strong>
                   </div>
                   <div>
                     <span>{t("tin.metrics.paye")}</span>
-                    <strong>{formatRwf(tinAnalysis.payrollSummary.paye)}</strong>
+                    <strong>{formatMoney(tinAnalysis.payrollSummary?.paye) || EMPTY_VALUE}</strong>
                   </div>
                   <div>
                     <span>{t("tin.metrics.totalRemittance")}</span>
-                    <strong>{formatRwf(tinAnalysis.payrollSummary.totalRemittance)}</strong>
+                    <strong>{formatMoney(tinAnalysis.payrollSummary?.totalRemittance) || EMPTY_VALUE}</strong>
                   </div>
                 </div>
 
                 <div className="tin-obligations">
                   <h4>{t("tin.obligationsTitle")}</h4>
                   <ul>
-                    {tinAnalysis.obligations.map((obligation) => (
+                    {(tinAnalysis.obligations || []).map((obligation) => (
                       <li key={obligation}>{t(`tin.obligations.${obligation}`)}</li>
                     ))}
                   </ul>
@@ -827,7 +925,7 @@ export default function AIChat() {
                 <div className="tin-liabilities">
                   <h4>{t("tin.liabilitiesTitle")}</h4>
                   <ul>
-                    {tinAnalysis.liabilities.map((liability) => (
+                    {(tinAnalysis.liabilities || []).map((liability) => (
                       <li key={liability.key}>
                         {t(`tin.liabilities.${liability.key}`, {
                           amount: formatRwf(liability.amount),
@@ -852,7 +950,7 @@ export default function AIChat() {
           <article
             key={item.id}
             className={`message message--${item.role} ${
-              item.variant === "tin" || item.variant === "payroll" ? "message--structured" : ""
+              item.variant === "tin" || item.variant === "payroll" || item.companyContext ? "message--structured" : ""
             }`}
           >
             <div className="message__meta">

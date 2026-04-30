@@ -7,17 +7,24 @@
   },
   "nav": {
     "dashboard": "Dashboard",
+    "company": "Company",
     "employees": "Employees",
     "payroll": "Payroll",
     "payments": "Payments",
+    "pension": "Pension",
+    "reports": "Reports",
     "aiChat": "AI Chat",
     "brandSubtitle": "Fintech payroll",
     "mainNavigation": "Main navigation",
+    "mobileMenu": "Choose a page",
     "short": {
       "dashboard": "Home",
+      "company": "Company",
       "employees": "People",
       "payroll": "Pay",
       "payments": "Cash",
+      "pension": "RSSB",
+      "reports": "Reports",
       "aiChat": "AI"
     }
   },
@@ -48,13 +55,13 @@
     "restoringSession": "Restoring your session..."
   },
   "dashboard": {
-    "eyebrow": "Production-ready payroll",
-    "title": "Run payroll, manage people, and get AI help without exposing secrets.",
-    "description": "SmartPayRW keeps browser code clean: authentication, employee data, payroll data, and AI requests all flow through backend APIs configured by VITE_API_URL.",
+    "eyebrow": "Dashboard",
+    "title": "Manage employees, payroll, taxes, payments, and pension in one place.",
+    "description": "SmartPayRW helps your business run Rwanda payroll clearly and on time.",
     "cta": "Ask the AI assistant",
     "paymentCta": "Request payment",
     "loading": "Loading analytics...",
-    "demoNotice": "Live dashboard data is unavailable, so SmartPayRW is showing simulated analytics.",
+    "demoNotice": "Live dashboard data is unavailable. Connect the backend to show company payroll analytics.",
     "analyticsLabel": "Payroll analytics",
     "analytics": {
       "totalPayroll": "Total Payroll",
@@ -62,9 +69,11 @@
       "totalEmployees": "Total Employees",
       "totalEmployeesCaption": "Active people in the workspace.",
       "taxes": "Taxes",
-      "taxesCaption": "PAYE and statutory tax estimates.",
+      "taxesCaption": "Taxes to plan for, including PAYE and RSSB.",
       "payments": "Payments",
-      "paymentsCaption": "Mobile money and payroll payouts."
+      "paymentsCaption": "Completed and planned payments.",
+      "pension": "Pension (RSSB)",
+      "pensionCaption": "Employee {{employeeRate}}, employer {{employerRate}}"
     },
     "charts": {
       "payrollTrendEyebrow": "Payroll trend",
@@ -72,26 +81,89 @@
       "cashflowEyebrow": "Taxes and payments",
       "cashflow": "Cashflow split"
     },
-    "readinessLabel": "Frontend integration readiness",
+    "pension": {
+      "eyebrow": "Pension",
+      "title": "RSSB pension",
+      "description": "Track pension money, contribution rates, and employer versus employee shares.",
+      "employeeShare": "Employee share",
+      "employerShare": "Employer share",
+      "total": "Total pension"
+    },
+    "compliance": {
+      "eyebrow": "Compliance",
+      "title": "Rules and deadlines",
+      "description": "Simple reminders for Rwanda payroll filing.",
+      "payeTitle": "PAYE",
+      "payeText": "PAYE is withheld from employee salaries and paid to RRA.",
+      "rssbTitle": "RSSB",
+      "rssbText": "RSSB pension uses employee {{employeeRate}} and employer {{employerRate}} shares.",
+      "deadlineTitle": "Deadline",
+      "deadlineText": "Taxes should be paid before the 15th day of each month.",
+      "note": "Confirm the figures before submitting declarations."
+    },
+    "readinessLabel": "Workspace readiness",
     "readiness": {
       "authTitle": "Authentication",
-      "authDescription": "Login and registration forms are wired to backend auth endpoints.",
+      "authDescription": "Your team can sign in and use the workspace securely.",
       "routesTitle": "Protected Routes",
-      "routesDescription": "Core fintech pages require a persisted JWT session before access.",
-      "aiTitle": "Backend AI",
-      "aiDescription": "AI chat sends messages only through the backend integration endpoint."
+      "routesDescription": "Business pages stay protected until the user signs in.",
+      "aiTitle": "Assistant",
+      "aiDescription": "The assistant helps with payroll, employees, taxes, and compliance."
     }
+  },
+  "company": {
+    "eyebrow": "Company setup",
+    "title": "Register your company before running payroll.",
+    "description": "SmartPayRW uses your company name, TIN, and business type to keep payroll, employees, and AI answers tied to real business data.",
+    "formEyebrow": "Registration",
+    "formTitle": "Company registration",
+    "name": "Company Name",
+    "namePlaceholder": "Example: Kigali Trading Ltd",
+    "tin": "TIN",
+    "tinPlaceholder": "Enter company TIN",
+    "businessType": "Business Type",
+    "businessTypePlaceholder": "Example: Retail, services, construction",
+    "submit": "Register company",
+    "submitting": "Registering...",
+    "validation": "Company name, TIN, and business type are required.",
+    "submitError": "Unable to register company.",
+    "success": "Company registered successfully.",
+    "profileEyebrow": "Company data",
+    "profileTitle": "Your company",
+    "profileDescription": "This is the company profile SmartPayRW uses across payroll and AI.",
+    "emptyTitle": "No company registered",
+    "emptyMessage": "Register your company first so SmartPayRW can use real data.",
+    "registerCta": "Register company",
+    "registered": "Registered",
+    "status": "Status",
+    "noCompanyShort": "No company yet",
+    "employeesPreview": "Your employees"
   },
   "employees": {
     "eyebrow": "People operations",
     "title": "Employees",
+    "description": "Add employees, salary details, and payroll-ready records for your company.",
+    "formEyebrow": "Add employee",
+    "formTitle": "Employee details",
+    "listEyebrow": "Your employees",
+    "listTitle": "Employee list",
     "loading": "Loading employees...",
     "loadError": "Unable to load employees.",
+    "add": "Add employee",
+    "adding": "Adding...",
+    "addSuccess": "Employee added successfully.",
+    "addError": "Unable to add employee.",
+    "validation": "Employee name and salary are required.",
     "emptyTitle": "No employees yet",
     "emptyMessage": "Employee records will appear here.",
     "name": "Name",
+    "namePlaceholder": "Employee full name",
     "email": "Email",
+    "emailPlaceholder": "employee@example.com",
     "role": "Role",
+    "rolePlaceholder": "Example: Accountant",
+    "salary": "Salary",
+    "salaryPlaceholder": "Monthly gross salary",
     "status": "Status",
     "notProvided": "Not provided",
     "defaultRole": "Employee",
@@ -105,6 +177,28 @@
     "emptyTitle": "No payroll records",
     "emptyMessage": "Completed payroll runs will appear here.",
     "defaultRun": "Payroll run"
+  },
+  "pension": {
+    "eyebrow": "RSSB",
+    "title": "Employee pension",
+    "description": "Track employee and employer pension contributions before declarations.",
+    "employeeShare": "Employee share",
+    "employeeCaption": "Employee contributes {{rate}} of gross salary.",
+    "employerShare": "Employer share",
+    "employerCaption": "Employer contributes {{rate}} of gross salary.",
+    "total": "Total",
+    "totalCaption": "Total pension amount to plan for."
+  },
+  "reports": {
+    "eyebrow": "Reports",
+    "title": "Payroll reports",
+    "description": "Prepare clear reports for payroll, taxes, pension, and payments.",
+    "payrollTitle": "Payroll report",
+    "payrollText": "Review paid amounts, employees, and payroll periods.",
+    "complianceTitle": "Tax report",
+    "complianceText": "Review PAYE, RSSB, and items due before the 15th.",
+    "paymentTitle": "Payment report",
+    "paymentText": "Track payments made through mobile money or other channels."
   },
   "payments": {
     "eyebrow": "Mobile money",
@@ -141,9 +235,9 @@
   },
   "chat": {
     "initialMessage": "Hi, I am your SmartPayRW assistant. Ask me about payroll runs, employee records, taxes, or compliance workflows.",
-    "eyebrow": "Backend-only AI integration",
+    "eyebrow": "SmartPayRW assistant",
     "title": "AI Chat",
-    "description": "The frontend sends messages only to POST /api/ai/chat. Provider keys stay on the backend.",
+    "description": "Ask about payroll, employees, taxes, pension, or Rwanda compliance.",
     "assistant": "Assistant",
     "you": "You",
     "placeholder": "Ask about payroll calculations, employees, PAYE, or compliance...",
@@ -151,6 +245,7 @@
     "sending": "Sending...",
     "retry": "Retry",
     "typing": "Assistant is typing",
+    "noCompanyMessage": "Nyamuneka banza wandikishe ikigo cyawe",
     "tinDetected": "TIN detected",
     "suggestionsLabel": "Prompt suggestions",
     "suggestions": {
@@ -178,11 +273,11 @@
       "totalRemittance": "Total remittance",
       "employerCost": "Employer cost"
     },
-    "backendError": "Unable to reach the backend AI endpoint.",
-    "fallback": "I could not reach the SmartPayRW backend AI service. Please try again shortly.",
+    "backendError": "Unable to reach the SmartPayRW assistant.",
+    "fallback": "I could not reach the SmartPayRW assistant. Please try again shortly.",
     "emptyResponse": "The AI service responded, but no message content was returned.",
     "local": {
-      "backendNotice": "Backend AI is unavailable, so SmartPayRW generated local payroll guidance.",
+      "backendNotice": "The assistant is unavailable, so SmartPayRW generated guidance for testing.",
       "taxAnswer": "For a monthly gross salary of {{gross}}, estimated payroll deductions are:\nPAYE: {{paye}}\nEmployee pension: {{pension}}\nMaternity benefit: {{maternity}}\nCBHI: {{cbhi}}\nEstimated net pay: {{net}}\nEmployer statutory contributions: {{employer}}\nTotal monthly remittance to plan for: {{remittance}}\n\nThis uses current Rwanda PAYE bands and statutory contribution assumptions. Confirm edge cases such as benefits in kind, second employment, exemptions, or special medical scheme coverage before filing.",
       "obligationsAnswer": "Employer obligations in Rwanda usually include registering for PAYE, withholding employee PAYE, deducting employee RSSB pension and maternity contributions, collecting CBHI on net salary, paying employer pension, maternity, and occupational hazard contributions, handling RSSB medical scheme contributions where applicable, filing unified PAYE/RSSB declarations, and keeping payroll records for audit support.",
       "runPayrollAnswer": "To run payroll correctly: confirm employee master data and taxable benefits, calculate gross taxable income, compute PAYE using Rwanda bands, deduct employee pension, maternity, and CBHI, add employer RSSB obligations, reconcile totals, submit PAYE/RSSB by the due date, pay through official channels, and keep payslips plus declaration receipts.",
@@ -193,7 +288,7 @@
   "tin": {
     "eyebrow": "TIN intelligence",
     "title": "Company TIN analysis",
-    "description": "Analyze a company TIN for payroll obligations, possible liabilities, and estimated monthly payroll exposure. If no live endpoint is available, SmartPayRW simulates realistic planning data.",
+    "description": "Analyze a company TIN for payroll obligations, possible liabilities, and estimated monthly payroll exposure. If live data is unavailable, SmartPayRW shows realistic planning data.",
     "inputLabel": "Company TIN number",
     "placeholder": "Enter 9-digit TIN",
     "analyze": "Analyze TIN",
@@ -213,7 +308,7 @@
       "high": "High"
     },
     "source": {
-      "backend": "Backend",
+      "backend": "Live data",
       "simulation": "Simulated"
     },
     "metrics": {
@@ -241,7 +336,8 @@
     "askAi": "Ask AI about this TIN",
     "askPrompt": "Analyze TIN {{tin}} and explain the payroll obligations, liabilities, and next compliance steps.",
     "chatSummary": "TIN {{tin}} analyzed from {{source}} data.\nCompany: {{company}}\nEmployees: {{employees}}\nMonthly gross payroll: {{gross}}\nEstimated remittance: {{remittance}}",
-    "invalidSummary": "TIN {{tin}} could not be validated. Please check the number and try again."
+    "invalidSummary": "TIN {{tin}} could not be validated. Please check the number and try again.",
+    "loadError": "Unable to analyze this TIN."
   },
   "common": {
     "loading": "Loading...",

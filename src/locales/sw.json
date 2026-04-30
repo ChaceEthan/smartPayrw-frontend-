@@ -10,14 +10,19 @@
     "employees": "Wafanyakazi",
     "payroll": "Mishahara",
     "payments": "Malipo",
+    "pension": "Pensheni",
+    "reports": "Ripoti",
     "aiChat": "Gumzo la AI",
     "brandSubtitle": "Mishahara ya fintech",
     "mainNavigation": "Urambazaji mkuu",
+    "mobileMenu": "Chagua ukurasa",
     "short": {
       "dashboard": "Nyumbani",
       "employees": "Watu",
       "payroll": "Mshahara",
       "payments": "Malipo",
+      "pension": "RSSB",
+      "reports": "Ripoti",
       "aiChat": "AI"
     }
   },
@@ -48,9 +53,9 @@
     "restoringSession": "Inarejesha session yako..."
   },
   "dashboard": {
-    "eyebrow": "Mishahara iliyo tayari kwa uzalishaji",
-    "title": "Endesha mishahara, simamia watu, na pata msaada wa AI bila kufichua siri.",
-    "description": "SmartPayRW huweka msimbo wa kivinjari safi: uthibitishaji, data ya wafanyakazi, data ya mishahara, na maombi ya AI yote hupitia API za backend zilizosanidiwa na VITE_API_URL.",
+    "eyebrow": "Dashibodi",
+    "title": "Simamia wafanyakazi, mishahara, kodi, malipo na pensheni sehemu moja.",
+    "description": "SmartPayRW husaidia biashara yako kusimamia mishahara Rwanda kwa uwazi na kwa wakati.",
     "cta": "Muulize msaidizi wa AI",
     "paymentCta": "Omba malipo",
     "loading": "Inapakia takwimu...",
@@ -62,9 +67,11 @@
       "totalEmployees": "Jumla ya wafanyakazi",
       "totalEmployeesCaption": "Wafanyakazi hai kwenye sehemu ya kazi.",
       "taxes": "Kodi",
-      "taxesCaption": "Makadirio ya PAYE na kodi za kisheria.",
+      "taxesCaption": "Kodi za kupanga, pamoja na PAYE na RSSB.",
       "payments": "Malipo",
-      "paymentsCaption": "Malipo ya mobile money na mishahara."
+      "paymentsCaption": "Malipo yaliyofanyika na yaliyopangwa.",
+      "pension": "Pensheni (RSSB)",
+      "pensionCaption": "Mfanyakazi {{employeeRate}}, mwajiri {{employerRate}}"
     },
     "charts": {
       "payrollTrendEyebrow": "Mwelekeo wa mishahara",
@@ -72,14 +79,34 @@
       "cashflowEyebrow": "Kodi na malipo",
       "cashflow": "Mgawanyo wa mtiririko wa fedha"
     },
-    "readinessLabel": "Utayari wa muunganisho wa frontend",
+    "pension": {
+      "eyebrow": "Pensheni",
+      "title": "Pensheni ya RSSB",
+      "description": "Fuatilia pesa za pensheni, viwango na mchango wa mwajiri dhidi ya mfanyakazi.",
+      "employeeShare": "Mchango wa mfanyakazi",
+      "employerShare": "Mchango wa mwajiri",
+      "total": "Jumla ya pensheni"
+    },
+    "compliance": {
+      "eyebrow": "Uzingatiaji",
+      "title": "Sheria na muda wa mwisho",
+      "description": "Vikumbusho rahisi kwa mishahara Rwanda.",
+      "payeTitle": "PAYE",
+      "payeText": "PAYE hukatwa kwenye mishahara ya wafanyakazi na kulipwa RRA.",
+      "rssbTitle": "RSSB",
+      "rssbText": "Pensheni ya RSSB ina mchango wa mfanyakazi {{employeeRate}} na mwajiri {{employerRate}}.",
+      "deadlineTitle": "Muda wa mwisho",
+      "deadlineText": "Kodi zinapaswa kulipwa kabla ya tarehe 15 kila mwezi.",
+      "note": "Thibitisha takwimu kabla ya kuwasilisha matamko."
+    },
+    "readinessLabel": "Utayari wa sehemu ya kazi",
     "readiness": {
       "authTitle": "Uthibitishaji",
-      "authDescription": "Fomu za kuingia na kujisajili zimeunganishwa na endpoints za uthibitishaji za backend.",
+      "authDescription": "Timu yako inaweza kuingia na kutumia sehemu ya kazi kwa usalama.",
       "routesTitle": "Njia zilizolindwa",
-      "routesDescription": "Kurasa kuu za fintech zinahitaji session ya JWT iliyohifadhiwa kabla ya kufikiwa.",
-      "aiTitle": "AI ya backend",
-      "aiDescription": "Gumzo la AI hutuma ujumbe kupitia endpoint ya backend pekee."
+      "routesDescription": "Kurasa za kazi zinalindwa hadi mtumiaji aingie.",
+      "aiTitle": "Msaidizi",
+      "aiDescription": "Msaidizi husaidia kuhusu mishahara, wafanyakazi, kodi na kufuata sheria."
     }
   },
   "employees": {
@@ -105,6 +132,28 @@
     "emptyTitle": "Hakuna rekodi za mishahara",
     "emptyMessage": "Mizunguko ya mishahara iliyokamilika itaonekana hapa.",
     "defaultRun": "Mzunguko wa mishahara"
+  },
+  "pension": {
+    "eyebrow": "RSSB",
+    "title": "Pensheni ya wafanyakazi",
+    "description": "Fuatilia michango ya pensheni ya mfanyakazi na mwajiri kabla ya matamko.",
+    "employeeShare": "Mchango wa mfanyakazi",
+    "employeeCaption": "Mfanyakazi huchangia {{rate}} ya mshahara ghafi.",
+    "employerShare": "Mchango wa mwajiri",
+    "employerCaption": "Mwajiri huchangia {{rate}} ya mshahara ghafi.",
+    "total": "Jumla",
+    "totalCaption": "Jumla ya pensheni ya kupanga."
+  },
+  "reports": {
+    "eyebrow": "Ripoti",
+    "title": "Ripoti za mishahara",
+    "description": "Andaa ripoti zilizo wazi za mishahara, kodi, pensheni na malipo.",
+    "payrollTitle": "Ripoti ya mishahara",
+    "payrollText": "Kagua kiasi kilicholipwa, wafanyakazi na vipindi vya mishahara.",
+    "complianceTitle": "Ripoti ya kodi",
+    "complianceText": "Kagua PAYE, RSSB na malipo yanayotakiwa kabla ya tarehe 15.",
+    "paymentTitle": "Ripoti ya malipo",
+    "paymentText": "Fuatilia malipo ya mobile money au njia nyingine."
   },
   "payments": {
     "eyebrow": "Mobile money",
@@ -141,9 +190,9 @@
   },
   "chat": {
     "initialMessage": "Habari, mimi ni msaidizi wako wa SmartPayRW. Niulize kuhusu mizunguko ya mishahara, rekodi za wafanyakazi, kodi, au taratibu za kufuata sheria.",
-    "eyebrow": "Muunganisho wa AI kupitia backend pekee",
+    "eyebrow": "Msaidizi wa SmartPayRW",
     "title": "Gumzo la AI",
-    "description": "Frontend hutuma ujumbe kwenda POST /api/ai/chat pekee. Funguo za watoa huduma hubaki kwenye backend.",
+    "description": "Uliza kuhusu mishahara, wafanyakazi, kodi, pensheni au kufuata sheria Rwanda.",
     "assistant": "Msaidizi",
     "you": "Wewe",
     "placeholder": "Uliza kuhusu mahesabu ya mishahara, wafanyakazi, PAYE, au kufuata sheria...",
@@ -178,11 +227,11 @@
       "totalRemittance": "Jumla ya kutuma",
       "employerCost": "Gharama ya mwajiri"
     },
-    "backendError": "Imeshindikana kufikia endpoint ya AI ya backend.",
-    "fallback": "Imeshindikana kufikia huduma ya AI ya backend ya SmartPayRW. Tafadhali jaribu tena hivi karibuni.",
+    "backendError": "Imeshindikana kufikia msaidizi wa SmartPayRW.",
+    "fallback": "Imeshindikana kufikia msaidizi wa SmartPayRW. Tafadhali jaribu tena hivi karibuni.",
     "emptyResponse": "Huduma ya AI imejibu, lakini hakuna ujumbe uliorejeshwa.",
     "local": {
-      "backendNotice": "AI ya backend haipatikani, kwa hivyo SmartPayRW imetoa mwongozo wa mishahara wa ndani.",
+      "backendNotice": "Msaidizi hapatikani, kwa hivyo SmartPayRW imetoa mwongozo wa majaribio.",
       "taxAnswer": "Kwa mshahara ghafi wa mwezi wa {{gross}}, makato yanayokadiriwa ni:\nPAYE: {{paye}}\nPensheni ya mfanyakazi: {{pension}}\nMchango wa likizo ya uzazi: {{maternity}}\nCBHI: {{cbhi}}\nMshahara halisi unaokadiriwa: {{net}}\nMichango ya mwajiri: {{employer}}\nJumla ya kutuma kila mwezi ya kupanga: {{remittance}}\n\nHii inatumia viwango vya sasa vya PAYE Rwanda na makadirio ya michango ya kisheria. Thibitisha hali maalum kama manufaa yasiyo ya fedha, ajira ya pili, misamaha, au bima maalum ya afya kabla ya kuwasilisha.",
       "obligationsAnswer": "Wajibu wa mwajiri Rwanda kwa kawaida ni pamoja na kujisajili kwa PAYE, kukata PAYE ya wafanyakazi, kukata michango ya pensheni na uzazi ya mfanyakazi, kukusanya CBHI kwenye mshahara halisi, kulipa michango ya mwajiri ya pensheni, uzazi na hatari kazini, kushughulikia michango ya medical scheme ya RSSB inapohusika, kuwasilisha matamko ya pamoja ya PAYE/RSSB, na kuhifadhi rekodi za mishahara.",
       "runPayrollAnswer": "Ili kuendesha mishahara kwa usahihi: thibitisha data za wafanyakazi na manufaa yanayotozwa kodi, hesabu mapato ghafi yanayotozwa kodi, tumia viwango vya PAYE Rwanda, kata pensheni, uzazi na CBHI upande wa mfanyakazi, ongeza wajibu wa RSSB wa mwajiri, linganisha jumla, wasilisha PAYE/RSSB kwa wakati, lipa kupitia njia rasmi, na hifadhi payslips pamoja na risiti za matamko.",
@@ -193,7 +242,7 @@
   "tin": {
     "eyebrow": "Uchambuzi wa TIN",
     "title": "Uchambuzi wa TIN ya kampuni",
-    "description": "Chambua TIN ya kampuni ili kuona wajibu wa mishahara, madeni yanayowezekana na makadirio ya mwezi. Ikiwa hakuna endpoint halisi, SmartPayRW huiga data halisi ya kupanga.",
+    "description": "Chambua TIN ya kampuni ili kuona wajibu wa mishahara, madeni yanayowezekana na makadirio ya mwezi. Ikiwa data halisi haipatikani, SmartPayRW huonyesha data ya kupanga.",
     "inputLabel": "Nambari ya TIN ya kampuni",
     "placeholder": "Weka TIN ya tarakimu 9",
     "analyze": "Chambua TIN",
@@ -213,7 +262,7 @@
       "high": "Juu"
     },
     "source": {
-      "backend": "Backend",
+      "backend": "Data halisi",
       "simulation": "Uigaji"
     },
     "metrics": {

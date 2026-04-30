@@ -7,17 +7,24 @@
   },
   "nav": {
     "dashboard": "Imbonerahamwe",
+    "company": "Ikigo cyawe",
     "employees": "Abakozi",
     "payroll": "Imishahara",
-    "payments": "Kwishyura",
+    "payments": "Ubwishyu",
+    "pension": "Pansiyo",
+    "reports": "Raporo",
     "aiChat": "Umufasha",
     "brandSubtitle": "Serivisi y'imishahara",
     "mainNavigation": "Inzira z'ingenzi",
+    "mobileMenu": "Hitamo aho ujya",
     "short": {
       "dashboard": "Ahabanza",
+      "company": "Ikigo",
       "employees": "Abakozi",
       "payroll": "Mishahara",
-      "payments": "Kwishyura",
+      "payments": "Ubwishyu",
+      "pension": "Pansiyo",
+      "reports": "Raporo",
       "aiChat": "Baza"
     }
   },
@@ -48,29 +55,51 @@
     "restoringSession": "Birimo kugarura aho wari ugeze..."
   },
   "dashboard": {
-    "eyebrow": "Imishahara yiteguye gukoreshwa",
-    "title": "Koresha imishahara, ucunge abakozi, kandi ubone ubufasha bw'umufasha wawe.",
-    "description": "SmartPayRW igufasha kwinjira, kubika amakuru y'abakozi, gukurikirana imishahara, no kubona ibisubizo byihuse.",
+    "eyebrow": "Imbonerahamwe",
+    "title": "SmartPayRW igufasha gucunga abakozi, imishahara n'imisoro byoroshye.",
+    "description": "Reba amafaranga y'imishahara, imisoro, ubwishyu na pansiyo mu mwanya umwe.",
     "cta": "Baza umufasha",
     "paymentCta": "Saba kwishyura",
     "loading": "Birimo kuzana imibare...",
-    "demoNotice": "Amakuru nyayo y'imbonerahamwe ntaboneka, SmartPayRW irerekana imibare y'igerageza.",
+    "demoNotice": "Amakuru nyayo y'imbonerahamwe ntaboneka. Huza seriveri kugira ngo ubone imibare y'ikigo cyawe.",
     "analyticsLabel": "Imibare y'imishahara",
     "analytics": {
-      "totalPayroll": "Imishahara yose",
-      "totalPayrollCaption": "Imishahara mbumbe y'iki gihe.",
-      "totalEmployees": "Abakozi bawe",
-      "totalEmployeesCaption": "Abakozi bakora muri konti yawe.",
+      "totalPayroll": "Imishahara Yose",
+      "totalPayrollCaption": "Amafaranga yose y'imishahara muri iki gihe",
+      "totalEmployees": "Abakozi Bose",
+      "totalEmployeesCaption": "Umubare w'abakozi bakora",
       "taxes": "Imisoro",
-      "taxesCaption": "Reba imisoro yawe n'iy'imishahara.",
-      "payments": "Kwishyura",
-      "paymentsCaption": "Amafaranga yishyuwe n'ayoherejwe."
+      "taxesCaption": "Imisoro igomba kwishyurwa (PAYE, RSSB)",
+      "payments": "Ubwishyu",
+      "paymentsCaption": "Ubwishyu bwakozwe",
+      "pension": "Pansiyo (RSSB)",
+      "pensionCaption": "Umukozi {{employeeRate}}, umukoresha {{employerRate}}"
     },
     "charts": {
       "payrollTrendEyebrow": "Uko imishahara ihinduka",
       "payrollTrend": "Imishahara ya buri kwezi",
       "cashflowEyebrow": "Imisoro no kwishyura",
       "cashflow": "Uko amafaranga agenda"
+    },
+    "pension": {
+      "eyebrow": "Pansiyo",
+      "title": "Pansiyo ya RSSB",
+      "description": "Reba amafaranga ajya muri pansiyo, uruhare rw'umukozi n'urw'umukoresha.",
+      "employeeShare": "Uruhare rw'umukozi",
+      "employerShare": "Uruhare rw'umukoresha",
+      "total": "Igiteranyo cya pansiyo"
+    },
+    "compliance": {
+      "eyebrow": "Kubahiriza amategeko",
+      "title": "Amategeko n'amabwiriza",
+      "description": "Ibi bigufasha kumenya ibyo ugomba kwishyura no igihe bigomba gutangirwa.",
+      "payeTitle": "PAYE",
+      "payeText": "PAYE ni umusoro ukatwa ku mushahara w'umukozi ukoherezwa muri RRA.",
+      "rssbTitle": "RSSB",
+      "rssbText": "Pansiyo ya RSSB igizwe n'uruhare rw'umukozi {{employeeRate}} n'urw'umukoresha {{employerRate}}.",
+      "deadlineTitle": "Igihe ntarengwa",
+      "deadlineText": "Ugomba kwishyura imisoro mbere ya tariki ya 15 buri kwezi.",
+      "note": "Banza wemeze imibare mbere yo gutanga imenyekanisha."
     },
     "readinessLabel": "Uko urubuga rwiteguye",
     "readiness": {
@@ -82,16 +111,59 @@
       "aiDescription": "Ubutumwa bwoherezwa kuri seriveri kugira ngo butunganywe neza."
     }
   },
+  "company": {
+    "eyebrow": "Ikigo cyawe",
+    "title": "Banza wandikishe ikigo cyawe mbere yo gukoresha imishahara.",
+    "description": "SmartPayRW ikoresha izina ry'ikigo, TIN n'ubwoko bw'ubucuruzi kugira ngo imishahara, abakozi n'ibisubizo by'umufasha bishingire ku makuru nyayo.",
+    "formEyebrow": "Iyandikisha",
+    "formTitle": "Andikisha ikigo",
+    "name": "Izina ry'ikigo",
+    "namePlaceholder": "Urugero: Kigali Trading Ltd",
+    "tin": "TIN",
+    "tinPlaceholder": "Andika TIN y'ikigo",
+    "businessType": "Ubwoko bw'ubucuruzi",
+    "businessTypePlaceholder": "Urugero: Ubucuruzi, serivisi, ubwubatsi",
+    "submit": "Andikisha ikigo",
+    "submitting": "Birimo kwandika...",
+    "validation": "Izina ry'ikigo, TIN n'ubwoko bw'ubucuruzi birakenewe.",
+    "submitError": "Ntibyakunze kwandikisha ikigo.",
+    "success": "Ikigo cyanditswe neza.",
+    "profileEyebrow": "Amakuru y'ikigo",
+    "profileTitle": "Ikigo cyawe",
+    "profileDescription": "Aya ni yo makuru SmartPayRW ikoresha mu mishahara no mu mufasha.",
+    "emptyTitle": "Nta kigo kirandikwa",
+    "emptyMessage": "Banza wandikishe ikigo cyawe kugira ngo SmartPayRW ikoreshe amakuru nyayo.",
+    "registerCta": "Andikisha ikigo",
+    "registered": "Cyanditswe",
+    "status": "Imiterere",
+    "noCompanyShort": "Nta kigo kirandikwa",
+    "employeesPreview": "Abakozi bawe"
+  },
   "employees": {
     "eyebrow": "Imicungire y'abakozi",
-    "title": "Abakozi",
+    "title": "Abakozi bawe",
+    "description": "Ongeramo abakozi, imishahara yabo n'amakuru akenewe mu gutegura imishahara.",
+    "formEyebrow": "Ongeramo umukozi",
+    "formTitle": "Amakuru y'umukozi",
+    "listEyebrow": "Abakozi bawe",
+    "listTitle": "Urutonde rw'abakozi",
     "loading": "Birimo gupakira abakozi...",
     "loadError": "Ntibyakunze gupakira abakozi.",
+    "add": "Ongeramo umukozi",
+    "adding": "Birimo kongeramo...",
+    "addSuccess": "Umukozi yongewemo neza.",
+    "addError": "Ntibyakunze kongeramo umukozi.",
+    "validation": "Izina ry'umukozi n'umushahara birakenewe.",
     "emptyTitle": "Nta bakozi barongerwamo",
     "emptyMessage": "Amakuru y'abakozi azagaragara hano.",
     "name": "Izina",
+    "namePlaceholder": "Izina ryose ry'umukozi",
     "email": "Imeyili",
+    "emailPlaceholder": "employee@example.com",
     "role": "Inshingano",
+    "rolePlaceholder": "Urugero: Umucungamari",
+    "salary": "Umushahara",
+    "salaryPlaceholder": "Umushahara mbumbe w'ukwezi",
     "status": "Imiterere",
     "notProvided": "Ntibyatanzwe",
     "defaultRole": "Umukozi",
@@ -105,6 +177,28 @@
     "emptyTitle": "Nta nyandiko z'imishahara",
     "emptyMessage": "Imishahara yarangijwe izagaragara hano.",
     "defaultRun": "Igikorwa cy'imishahara"
+  },
+  "pension": {
+    "eyebrow": "RSSB",
+    "title": "Pansiyo y'abakozi",
+    "description": "Kurikirana imisanzu ya pansiyo y'umukozi n'iy'umukoresha mbere yo gutanga imenyekanisha.",
+    "employeeShare": "Uruhare rw'umukozi",
+    "employeeCaption": "Umukozi atanga {{rate}} by'umushahara mbumbe.",
+    "employerShare": "Uruhare rw'umukoresha",
+    "employerCaption": "Umukoresha atanga {{rate}} by'umushahara mbumbe.",
+    "total": "Igiteranyo",
+    "totalCaption": "Amafaranga yose agomba guteganywa kuri pansiyo."
+  },
+  "reports": {
+    "eyebrow": "Raporo",
+    "title": "Raporo z'imishahara",
+    "description": "Tegura raporo zoroheye gusoma ku mishahara, imisoro, pansiyo n'ubwishyu.",
+    "payrollTitle": "Raporo y'imishahara",
+    "payrollText": "Reba amafaranga yishyuwe, abakozi bahembwe n'igihe cy'umushahara.",
+    "complianceTitle": "Raporo y'imisoro",
+    "complianceText": "Reba PAYE, RSSB n'ibyo ugomba kwishyura mbere ya tariki ya 15.",
+    "paymentTitle": "Raporo y'ubwishyu",
+    "paymentText": "Kurikirana ubwishyu bwakozwe na mobile money cyangwa indi nzira."
   },
   "payments": {
     "eyebrow": "Amafaranga kuri telefoni",
@@ -151,6 +245,7 @@
     "sending": "Birimo kohereza...",
     "retry": "Ongera ugerageze",
     "typing": "Umufasha arimo kwandika",
+    "noCompanyMessage": "Nyamuneka banza wandikishe ikigo cyawe",
     "tinDetected": "TIN yamenyekanye",
     "suggestionsLabel": "Ibyifuzo by'ibibazo",
     "suggestions": {
@@ -178,11 +273,11 @@
       "totalRemittance": "Amafaranga yose yo kohereza",
       "employerCost": "Igiciro cy'umukoresha"
     },
-    "backendError": "Ntibyakunze kugera kuri seriveri y'umufasha.",
+    "backendError": "Ntibyakunze kugera ku mufasha wa SmartPayRW.",
     "fallback": "Ntibyakunze kugera ku mufasha wa SmartPayRW. Ongera ugerageze mu kanya.",
     "emptyResponse": "Umufasha yasubije, ariko nta butumwa bugarutse.",
     "local": {
-      "backendNotice": "Seriveri y'umufasha ntiboneka, SmartPayRW ikweretse igisubizo cy'igerageza.",
+      "backendNotice": "Umufasha ntaboneka, SmartPayRW ikweretse igisubizo cy'igerageza.",
       "taxAnswer": "Ku mushahara mbumbe wa buri kwezi ungana na {{gross}}, igipimo cy'ibikurwaho ni:\nPAYE: {{paye}}\nPansiyo y'umukozi: {{pension}}\nUmusanzu w'ikiruhuko cyo kubyara: {{maternity}}\nCBHI: {{cbhi}}\nUmushahara usigara: {{net}}\nImisanzu y'umukoresha: {{employer}}\nAmafaranga yo guteganya kohereza buri kwezi: {{remittance}}\n\nIbi bishingiye ku byiciro bya PAYE n'imisanzu ikoreshwa mu Rwanda. Emeza ibidasanzwe nk'inyungu zitari amafaranga, akazi ka kabiri, ubusonerwe, cyangwa ubwishingizi bwihariye mbere yo gutanga imenyekanisha.",
       "obligationsAnswer": "Inshingano z'umukoresha mu Rwanda akenshi zirimo kwiyandikisha kuri PAYE, gukata PAYE y'abakozi, gukata pansiyo n'umusanzu w'ikiruhuko cyo kubyara, gukusanya CBHI ku mushahara usigaye, kwishyura imisanzu y'umukoresha ya pansiyo, ikiruhuko cyo kubyara n'impanuka z'akazi, kwita ku bwishingizi bwa RSSB aho bukurikizwa, gutanga imenyekanisha rihuriweho rya PAYE/RSSB, no kubika inyandiko z'imishahara.",
       "runPayrollAnswer": "Kugira ngo ukoreshe imishahara neza: banza wemeze amakuru y'abakozi n'inyungu zisoreshwa, bara umushahara mbumbe usoreshwa, bara PAYE ukoresheje ibyiciro byo mu Rwanda, kata pansiyo, umusanzu w'ikiruhuko cyo kubyara na CBHI by'umukozi, ongeraho inshingano za RSSB z'umukoresha, huza imibare, tanga PAYE/RSSB ku gihe, wishyure unyuze mu nzira zemewe, kandi ubike impapuro z'umushahara n'inyemezabwishyu.",
@@ -213,7 +308,7 @@
       "high": "Byinshi"
     },
     "source": {
-      "backend": "Seriveri",
+      "backend": "Amakuru nyayo",
       "simulation": "Igerageza"
     },
     "metrics": {
@@ -224,7 +319,7 @@
     },
     "obligationsTitle": "Inshingano z'imisoro",
     "obligations": {
-      "paye": "Kata PAYE ku mushahara w'abakozi kandi uyimenyeshe/u yishyure muri RRA bitarenze umunsi wa 15 nyuma y'igihe cy'umusoro.",
+      "paye": "Kata PAYE ku mushahara w'abakozi, uyimenyeshe kandi uyishyure muri RRA bitarenze umunsi wa 15 nyuma y'igihe cy'umusoro.",
       "pensionEmployee": "Kata umusanzu wa pansiyo w'umukozi ungana na 6% by'umushahara mbumbe.",
       "pensionEmployer": "Ishyura umusanzu wa pansiyo w'umukoresha ungana na 6% by'umushahara mbumbe.",
       "maternity": "Koresha umusanzu w'ikiruhuko cyo kubyara ungana na 0.3% ku mukozi na 0.3% ku mukoresha.",
@@ -241,7 +336,8 @@
     "askAi": "Baza umufasha kuri iyi TIN",
     "askPrompt": "Sesengura TIN {{tin}} kandi usobanure inshingano z'imishahara, ibyago, n'intambwe zikurikira zo kubahiriza amategeko.",
     "chatSummary": "TIN {{tin}} yasesenguwe hashingiwe ku makuru ya {{source}}.\nIkigo: {{company}}\nAbakozi: {{employees}}\nUmushahara mbumbe w'ukwezi: {{gross}}\nAmafaranga agomba koherezwa: {{remittance}}",
-    "invalidSummary": "TIN {{tin}} ntiyashoboye kwemezwa. Ongera urebe nomero ugerageze."
+    "invalidSummary": "TIN {{tin}} ntiyashoboye kwemezwa. Ongera urebe nomero ugerageze.",
+    "loadError": "Ntibyakunze gusesengura iyi TIN."
   },
   "common": {
     "loading": "Birimo gupakira...",
