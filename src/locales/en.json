@@ -1,0 +1,167 @@
+{
+  "app": {
+    "authenticatedUser": "Authenticated user",
+    "workspace": "SmartPayRW workspace",
+    "commandCenter": "Payroll Command Center",
+    "language": "Language"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "employees": "Employees",
+    "payroll": "Payroll",
+    "aiChat": "AI Chat",
+    "brandSubtitle": "Fintech payroll",
+    "mainNavigation": "Main navigation"
+  },
+  "auth": {
+    "loginEyebrow": "Welcome back",
+    "loginTitle": "Sign in to SmartPayRW",
+    "registerEyebrow": "Create your workspace",
+    "registerTitle": "Register for SmartPayRW",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "confirmPassword": "Confirm password",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signingIn": "Signing in...",
+    "createAccount": "Create account",
+    "creatingAccount": "Creating account...",
+    "newPrompt": "New to SmartPayRW?",
+    "registerLink": "Create an account",
+    "registeredPrompt": "Already registered?",
+    "requiredCredentials": "Email and password are required.",
+    "loginFailed": "Login failed. Please check your credentials.",
+    "nameRequired": "Name is required.",
+    "invalidEmail": "Enter a valid email address.",
+    "passwordLength": "Password must be at least 6 characters.",
+    "passwordMismatch": "Passwords do not match.",
+    "registrationFailed": "Registration failed. Please try again.",
+    "restoringSession": "Restoring your session..."
+  },
+  "dashboard": {
+    "eyebrow": "Production-ready payroll",
+    "title": "Run payroll, manage people, and get AI help without exposing secrets.",
+    "description": "SmartPayRW keeps browser code clean: authentication, employee data, payroll data, and AI requests all flow through backend APIs configured by VITE_API_URL.",
+    "cta": "Ask the AI assistant",
+    "readinessLabel": "Frontend integration readiness",
+    "readiness": {
+      "authTitle": "Authentication",
+      "authDescription": "Login and registration forms are wired to backend auth endpoints.",
+      "routesTitle": "Protected Routes",
+      "routesDescription": "Core fintech pages require a persisted JWT session before access.",
+      "aiTitle": "Backend AI",
+      "aiDescription": "AI chat sends messages only through the backend integration endpoint."
+    }
+  },
+  "employees": {
+    "eyebrow": "People operations",
+    "title": "Employees",
+    "loading": "Loading employees...",
+    "loadError": "Unable to load employees.",
+    "emptyTitle": "No employees yet",
+    "emptyMessage": "Employee records will appear here.",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "notProvided": "Not provided",
+    "defaultRole": "Employee",
+    "active": "Active"
+  },
+  "payroll": {
+    "eyebrow": "Compensation",
+    "title": "Payroll",
+    "loading": "Loading payroll...",
+    "loadError": "Unable to load payroll records.",
+    "emptyTitle": "No payroll records",
+    "emptyMessage": "Completed payroll runs will appear here.",
+    "defaultRun": "Payroll run"
+  },
+  "chat": {
+    "initialMessage": "Hi, I am your SmartPayRW assistant. Ask me about payroll runs, employee records, taxes, or compliance workflows.",
+    "eyebrow": "Backend-only AI integration",
+    "title": "AI Chat",
+    "description": "The frontend sends messages only to POST /api/ai/chat. Provider keys stay on the backend.",
+    "assistant": "Assistant",
+    "you": "You",
+    "placeholder": "Ask about payroll calculations, employees, PAYE, or compliance...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "typing": "Assistant is typing",
+    "suggestionsLabel": "Prompt suggestions",
+    "suggestions": {
+      "taxes": "Calculate payroll taxes",
+      "tin": "Check company TIN obligations",
+      "payroll": "How to manage employee payroll?"
+    },
+    "backendError": "Unable to reach the backend AI endpoint.",
+    "fallback": "I could not reach the SmartPayRW backend AI service. Please try again shortly.",
+    "emptyResponse": "The AI service responded, but no message content was returned.",
+    "local": {
+      "backendNotice": "Backend AI is unavailable, so SmartPayRW generated local payroll guidance.",
+      "taxAnswer": "For a monthly gross salary of {{gross}}, estimated payroll deductions are:\nPAYE: {{paye}}\nEmployee pension: {{pension}}\nMaternity benefit: {{maternity}}\nCBHI: {{cbhi}}\nEstimated net pay: {{net}}\nEmployer statutory contributions: {{employer}}\nTotal monthly remittance to plan for: {{remittance}}\n\nThis uses current Rwanda PAYE bands and statutory contribution assumptions. Confirm edge cases such as benefits in kind, second employment, exemptions, or special medical scheme coverage before filing.",
+      "obligationsAnswer": "Employer obligations in Rwanda usually include registering for PAYE, withholding employee PAYE, deducting employee RSSB pension and maternity contributions, collecting CBHI on net salary, paying employer pension, maternity, and occupational hazard contributions, handling RSSB medical scheme contributions where applicable, filing unified PAYE/RSSB declarations, and keeping payroll records for audit support.",
+      "runPayrollAnswer": "To run payroll correctly: confirm employee master data and taxable benefits, calculate gross taxable income, compute PAYE using Rwanda bands, deduct employee pension, maternity, and CBHI, add employer RSSB obligations, reconcile totals, submit PAYE/RSSB by the due date, pay through official channels, and keep payslips plus declaration receipts.",
+      "tinAnswer": "TIN {{tin}} appears as {{company}} in the SmartPayRW analysis.\nEmployees: {{employees}}\nEstimated monthly gross payroll: {{gross}}\nEstimated monthly payroll remittance: {{remittance}}\nRisk level: {{risk}}\n\nUse this as a planning estimate unless confirmed by RRA/RSSB records.",
+      "tinMissing": "Enter and analyze a company TIN first, then I can explain likely PAYE, RSSB, CBHI, and payroll liabilities for that business."
+    }
+  },
+  "tin": {
+    "eyebrow": "TIN intelligence",
+    "title": "Company TIN analysis",
+    "description": "Analyze a company TIN for payroll obligations, possible liabilities, and estimated monthly payroll exposure. If no live endpoint is available, SmartPayRW simulates realistic planning data.",
+    "inputLabel": "Company TIN number",
+    "placeholder": "Enter 9-digit TIN",
+    "analyze": "Analyze TIN",
+    "analyzing": "Analyzing...",
+    "company": "Company",
+    "status": "Status",
+    "riskLabel": "Risk",
+    "sourceLabel": "Source",
+    "invalidTin": "Invalid TIN",
+    "statuses": {
+      "active": "Active",
+      "invalid": "Invalid"
+    },
+    "risk": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "source": {
+      "backend": "Backend",
+      "simulation": "Simulated"
+    },
+    "metrics": {
+      "employees": "Employees",
+      "grossPayroll": "Monthly gross payroll",
+      "paye": "Estimated PAYE",
+      "totalRemittance": "Total remittance"
+    },
+    "obligationsTitle": "Tax obligations",
+    "obligations": {
+      "paye": "Withhold PAYE from employment income and declare/pay it to RRA by the 15th day after the tax period.",
+      "pensionEmployee": "Deduct employee pension contribution at 6% of gross salary.",
+      "pensionEmployer": "Pay employer pension contribution at 6% of gross salary.",
+      "maternity": "Apply maternity leave benefit contribution at 0.3% employee share and 0.3% employer share.",
+      "occupationalHazard": "Pay employer occupational hazard contribution at 2% of gross salary.",
+      "cbhi": "Deduct CBHI at 0.5% of employee net salary and remit it through the employer process.",
+      "medicalScheme": "Where the RSSB medical scheme applies, account for the medical contribution at 7.5% employee share and 7.5% employer share of basic salary.",
+      "unifiedDeclaration": "Use unified PAYE/RSSB declarations where available and retain payroll evidence."
+    },
+    "liabilitiesTitle": "Possible liabilities",
+    "liabilities": {
+      "lateSurcharge": "Simulated late-payment surcharge exposure for {{months}} month(s): {{amount}}.",
+      "underpayment": "Simulated PAYE underpayment exposure: {{amount}}."
+    },
+    "askAi": "Ask AI about this TIN",
+    "askPrompt": "Analyze TIN {{tin}} and explain the payroll obligations, liabilities, and next compliance steps.",
+    "chatSummary": "TIN {{tin}} analyzed from {{source}} data.\nCompany: {{company}}\nEmployees: {{employees}}\nMonthly gross payroll: {{gross}}\nEstimated remittance: {{remittance}}",
+    "invalidSummary": "TIN {{tin}} could not be validated. Please check the number and try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error"
+  }
+}

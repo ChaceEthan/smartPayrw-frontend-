@@ -1,0 +1,167 @@
+{
+  "app": {
+    "authenticatedUser": "Utilisateur authentifié",
+    "workspace": "Espace de travail SmartPayRW",
+    "commandCenter": "Centre de gestion de la paie",
+    "language": "Langue"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "employees": "Employés",
+    "payroll": "Paie",
+    "aiChat": "Chat IA",
+    "brandSubtitle": "Paie fintech",
+    "mainNavigation": "Navigation principale"
+  },
+  "auth": {
+    "loginEyebrow": "Bon retour",
+    "loginTitle": "Connectez-vous à SmartPayRW",
+    "registerEyebrow": "Créez votre espace",
+    "registerTitle": "Inscription à SmartPayRW",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "confirmPassword": "Confirmer le mot de passe",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter",
+    "signingIn": "Connexion...",
+    "createAccount": "Créer un compte",
+    "creatingAccount": "Création du compte...",
+    "newPrompt": "Nouveau sur SmartPayRW ?",
+    "registerLink": "Créer un compte",
+    "registeredPrompt": "Déjà inscrit ?",
+    "requiredCredentials": "L'e-mail et le mot de passe sont obligatoires.",
+    "loginFailed": "Échec de la connexion. Vérifiez vos identifiants.",
+    "nameRequired": "Le nom est obligatoire.",
+    "invalidEmail": "Saisissez une adresse e-mail valide.",
+    "passwordLength": "Le mot de passe doit contenir au moins 6 caractères.",
+    "passwordMismatch": "Les mots de passe ne correspondent pas.",
+    "registrationFailed": "Échec de l'inscription. Veuillez réessayer.",
+    "restoringSession": "Restauration de votre session..."
+  },
+  "dashboard": {
+    "eyebrow": "Paie prête pour la production",
+    "title": "Exécutez la paie, gérez les équipes et obtenez l'aide de l'IA sans exposer de secrets.",
+    "description": "SmartPayRW garde le code du navigateur propre : authentification, données des employés, données de paie et requêtes IA passent par les API backend configurées avec VITE_API_URL.",
+    "cta": "Demander à l'assistant IA",
+    "readinessLabel": "Préparation de l'intégration frontend",
+    "readiness": {
+      "authTitle": "Authentification",
+      "authDescription": "Les formulaires de connexion et d'inscription sont reliés aux endpoints d'authentification backend.",
+      "routesTitle": "Routes protégées",
+      "routesDescription": "Les pages fintech principales exigent une session JWT persistée avant l'accès.",
+      "aiTitle": "IA backend",
+      "aiDescription": "Le chat IA envoie les messages uniquement via l'endpoint d'intégration backend."
+    }
+  },
+  "employees": {
+    "eyebrow": "Gestion des personnes",
+    "title": "Employés",
+    "loading": "Chargement des employés...",
+    "loadError": "Impossible de charger les employés.",
+    "emptyTitle": "Aucun employé pour le moment",
+    "emptyMessage": "Les dossiers des employés apparaîtront ici.",
+    "name": "Nom",
+    "email": "E-mail",
+    "role": "Rôle",
+    "status": "Statut",
+    "notProvided": "Non fourni",
+    "defaultRole": "Employé",
+    "active": "Actif"
+  },
+  "payroll": {
+    "eyebrow": "Rémunération",
+    "title": "Paie",
+    "loading": "Chargement de la paie...",
+    "loadError": "Impossible de charger les dossiers de paie.",
+    "emptyTitle": "Aucun dossier de paie",
+    "emptyMessage": "Les cycles de paie terminés apparaîtront ici.",
+    "defaultRun": "Cycle de paie"
+  },
+  "chat": {
+    "initialMessage": "Bonjour, je suis votre assistant SmartPayRW. Posez-moi des questions sur les cycles de paie, les employés, les taxes ou les workflows de conformité.",
+    "eyebrow": "Intégration IA côté backend uniquement",
+    "title": "Chat IA",
+    "description": "Le frontend envoie les messages uniquement vers POST /api/ai/chat. Les clés des fournisseurs restent sur le backend.",
+    "assistant": "Assistant",
+    "you": "Vous",
+    "placeholder": "Posez une question sur les calculs de paie, les employés, PAYE ou la conformité...",
+    "send": "Envoyer le message",
+    "sending": "Envoi...",
+    "typing": "L'assistant écrit",
+    "suggestionsLabel": "Suggestions de questions",
+    "suggestions": {
+      "taxes": "Calculer les taxes sur la paie",
+      "tin": "Vérifier les obligations TIN de l'entreprise",
+      "payroll": "Comment gérer la paie des employés ?"
+    },
+    "backendError": "Impossible de joindre l'endpoint IA du backend.",
+    "fallback": "Impossible de joindre le service IA backend de SmartPayRW. Veuillez réessayer bientôt.",
+    "emptyResponse": "Le service IA a répondu, mais aucun contenu de message n'a été renvoyé.",
+    "local": {
+      "backendNotice": "L'IA backend est indisponible ; SmartPayRW a généré une guidance paie locale.",
+      "taxAnswer": "Pour un salaire brut mensuel de {{gross}}, les retenues estimées sont :\nPAYE : {{paye}}\nPension employé : {{pension}}\nContribution maternité : {{maternity}}\nCBHI : {{cbhi}}\nSalaire net estimé : {{net}}\nContributions patronales : {{employer}}\nRemise mensuelle totale à prévoir : {{remittance}}\n\nCe calcul utilise les tranches PAYE rwandaises et des hypothèses de contributions statutaires. Confirmez les cas particuliers comme les avantages en nature, le second emploi, les exonérations ou une couverture médicale spéciale avant déclaration.",
+      "obligationsAnswer": "Les obligations de l'employeur au Rwanda incluent généralement l'inscription PAYE, la retenue du PAYE des employés, la retenue des contributions pension et maternité employé, la collecte du CBHI sur le salaire net, le paiement des contributions patronales pension, maternité et risques professionnels, la gestion de la contribution médicale RSSB lorsqu'elle s'applique, les déclarations unifiées PAYE/RSSB et la conservation des preuves de paie.",
+      "runPayrollAnswer": "Pour exécuter correctement la paie : validez les données employés et les avantages imposables, calculez le revenu brut imposable, appliquez les tranches PAYE rwandaises, déduisez pension, maternité et CBHI côté employé, ajoutez les obligations RSSB employeur, rapprochez les totaux, déclarez PAYE/RSSB à temps, payez via les canaux officiels et conservez bulletins plus reçus.",
+      "tinAnswer": "Le TIN {{tin}} apparaît comme {{company}} dans l'analyse SmartPayRW.\nEmployés : {{employees}}\nPaie brute mensuelle estimée : {{gross}}\nRemise paie mensuelle estimée : {{remittance}}\nNiveau de risque : {{risk}}\n\nUtilisez ceci comme estimation de planification sauf confirmation par les dossiers RRA/RSSB.",
+      "tinMissing": "Saisissez et analysez d'abord un TIN d'entreprise ; je pourrai ensuite expliquer les obligations probables PAYE, RSSB, CBHI et les passifs de paie."
+    }
+  },
+  "tin": {
+    "eyebrow": "Intelligence TIN",
+    "title": "Analyse du TIN de l'entreprise",
+    "description": "Analysez un TIN d'entreprise pour les obligations de paie, les passifs possibles et l'exposition mensuelle estimée. Si aucun endpoint réel n'est disponible, SmartPayRW simule des données réalistes de planification.",
+    "inputLabel": "Numéro TIN de l'entreprise",
+    "placeholder": "Saisir le TIN à 9 chiffres",
+    "analyze": "Analyser le TIN",
+    "analyzing": "Analyse...",
+    "company": "Entreprise",
+    "status": "Statut",
+    "riskLabel": "Risque",
+    "sourceLabel": "Source",
+    "invalidTin": "TIN invalide",
+    "statuses": {
+      "active": "Actif",
+      "invalid": "Invalide"
+    },
+    "risk": {
+      "low": "Faible",
+      "medium": "Moyen",
+      "high": "Élevé"
+    },
+    "source": {
+      "backend": "Backend",
+      "simulation": "Simulation"
+    },
+    "metrics": {
+      "employees": "Employés",
+      "grossPayroll": "Paie brute mensuelle",
+      "paye": "PAYE estimé",
+      "totalRemittance": "Remise totale"
+    },
+    "obligationsTitle": "Obligations fiscales",
+    "obligations": {
+      "paye": "Retenir le PAYE sur le revenu d'emploi et le déclarer/payer à la RRA au plus tard le 15e jour après la période fiscale.",
+      "pensionEmployee": "Retenir la contribution pension employé à 6 % du salaire brut.",
+      "pensionEmployer": "Payer la contribution pension employeur à 6 % du salaire brut.",
+      "maternity": "Appliquer la contribution maternité à 0,3 % côté employé et 0,3 % côté employeur.",
+      "occupationalHazard": "Payer la contribution employeur aux risques professionnels à 2 % du salaire brut.",
+      "cbhi": "Retenir le CBHI à 0,5 % du salaire net de l'employé et le reverser via le processus employeur.",
+      "medicalScheme": "Lorsque le régime médical RSSB s'applique, prévoir une contribution de 7,5 % côté employé et 7,5 % côté employeur du salaire de base.",
+      "unifiedDeclaration": "Utiliser les déclarations unifiées PAYE/RSSB lorsqu'elles sont disponibles et conserver les preuves de paie."
+    },
+    "liabilitiesTitle": "Passifs possibles",
+    "liabilities": {
+      "lateSurcharge": "Exposition simulée de pénalité de retard pour {{months}} mois : {{amount}}.",
+      "underpayment": "Exposition simulée de sous-paiement PAYE : {{amount}}."
+    },
+    "askAi": "Demander à l'IA pour ce TIN",
+    "askPrompt": "Analyse le TIN {{tin}} et explique les obligations de paie, les passifs et les prochaines étapes de conformité.",
+    "chatSummary": "TIN {{tin}} analysé à partir des données {{source}}.\nEntreprise : {{company}}\nEmployés : {{employees}}\nPaie brute mensuelle : {{gross}}\nRemise estimée : {{remittance}}",
+    "invalidSummary": "Le TIN {{tin}} n'a pas pu être validé. Vérifiez le numéro et réessayez."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur"
+  }
+}

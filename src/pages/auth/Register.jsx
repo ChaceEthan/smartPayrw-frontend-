@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import LanguageSwitcher from "../../components/shared/LanguageSwitcher.jsx";
 import { useAuth } from "../../hooks/useAuth.js";
 import { getApiErrorMessage } from "../../services/api.js";
 
@@ -13,6 +15,7 @@ const initialForm = {
 
 export default function Register() {
   const { isAuthenticated, register } = useAuth();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState("");
@@ -29,19 +32,19 @@ export default function Register() {
 
   function validateForm() {
     if (!form.name.trim()) {
-      return "Name is required.";
+      return t("auth.nameRequired");
     }
 
     if (!form.email.includes("@")) {
-      return "Enter a valid email address.";
+      return t("auth.invalidEmail");
     }
 
     if (form.password.length < 6) {
-      return "Password must be at least 6 characters.";
+      return t("auth.passwordLength");
     }
 
     if (form.password !== form.confirmPassword) {
-      return "Passwords do not match.";
+      return t("auth.passwordMismatch");
     }
 
     return "";
@@ -67,7 +70,7 @@ export default function Register() {
       });
       navigate("/", { replace: true });
     } catch (err) {
-      setError(getApiErrorMessage(err, "Registration failed. Please try again."));
+      setError(getApiErrorMessage(err, t("auth.registrationFailed")));
     } finally {
       setIsSubmitting(false);
     }
@@ -75,20 +78,23 @@ export default function Register() {
 
   return (
     <main className="auth-page">
+      <div className="auth-language">
+        <LanguageSwitcher />
+      </div>
       <section className="auth-card">
-        <p className="eyebrow">Create your workspace</p>
-        <h1>Register for SmartPayRW</h1>
+        <p className="eyebrow">{t("auth.registerEyebrow")}</p>
+        <h1>{t("auth.registerTitle")}</h1>
 
         {error && <div className="alert alert--error">{error}</div>}
 
         <form className="form-stack" onSubmit={handleSubmit}>
           <label>
-            Name
+            {t("auth.name")}
             <input name="name" value={form.name} onChange={updateField} autoComplete="name" required />
           </label>
 
           <label>
-            Email
+            {t("auth.email")}
             <input
               name="email"
               type="email"
@@ -100,7 +106,7 @@ export default function Register() {
           </label>
 
           <label>
-            Password
+            {t("auth.password")}
             <input
               name="password"
               type="password"
@@ -112,7 +118,7 @@ export default function Register() {
           </label>
 
           <label>
-            Confirm password
+            {t("auth.confirmPassword")}
             <input
               name="confirmPassword"
               type="password"
@@ -124,12 +130,12 @@ export default function Register() {
           </label>
 
           <button type="submit" className="button button--primary" disabled={isSubmitting}>
-            {isSubmitting ? "Creating account..." : "Create account"}
+            {isSubmitting ? t("auth.creatingAccount") : t("auth.createAccount")}
           </button>
         </form>
 
         <p className="muted">
-          Already registered? <Link to="/login">Sign in</Link>
+          {t("auth.registeredPrompt")} <Link to="/login">{t("auth.signIn")}</Link>
         </p>
       </section>
     </main>

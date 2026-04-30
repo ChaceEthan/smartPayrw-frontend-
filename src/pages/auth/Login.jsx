@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import LanguageSwitcher from "../../components/shared/LanguageSwitcher.jsx";
 import { useAuth } from "../../hooks/useAuth.js";
 import { getApiErrorMessage } from "../../services/api.js";
 
@@ -11,6 +13,7 @@ const initialForm = {
 
 export default function Login() {
   const { isAuthenticated, login } = useAuth();
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [form, setForm] = useState(initialForm);
@@ -33,7 +36,7 @@ export default function Login() {
     setError("");
 
     if (!form.email.trim() || !form.password) {
-      setError("Email and password are required.");
+      setError(t("auth.requiredCredentials"));
       return;
     }
 
@@ -43,7 +46,7 @@ export default function Login() {
       await login({ email: form.email.trim(), password: form.password });
       navigate(redirectTo, { replace: true });
     } catch (err) {
-      setError(getApiErrorMessage(err, "Login failed. Please check your credentials."));
+      setError(getApiErrorMessage(err, t("auth.loginFailed")));
     } finally {
       setIsSubmitting(false);
     }
@@ -51,15 +54,18 @@ export default function Login() {
 
   return (
     <main className="auth-page">
+      <div className="auth-language">
+        <LanguageSwitcher />
+      </div>
       <section className="auth-card">
-        <p className="eyebrow">Welcome back</p>
-        <h1>Sign in to SmartPayRW</h1>
+        <p className="eyebrow">{t("auth.loginEyebrow")}</p>
+        <h1>{t("auth.loginTitle")}</h1>
 
         {error && <div className="alert alert--error">{error}</div>}
 
         <form className="form-stack" onSubmit={handleSubmit}>
           <label>
-            Email
+            {t("auth.email")}
             <input
               name="email"
               type="email"
@@ -71,7 +77,7 @@ export default function Login() {
           </label>
 
           <label>
-            Password
+            {t("auth.password")}
             <input
               name="password"
               type="password"
@@ -83,12 +89,12 @@ export default function Login() {
           </label>
 
           <button type="submit" className="button button--primary" disabled={isSubmitting}>
-            {isSubmitting ? "Signing in..." : "Sign in"}
+            {isSubmitting ? t("auth.signingIn") : t("auth.signIn")}
           </button>
         </form>
 
         <p className="muted">
-          New to SmartPayRW? <Link to="/register">Create an account</Link>
+          {t("auth.newPrompt")} <Link to="/register">{t("auth.registerLink")}</Link>
         </p>
       </section>
     </main>

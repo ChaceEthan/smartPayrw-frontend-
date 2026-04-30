@@ -1,0 +1,167 @@
+{
+  "app": {
+    "authenticatedUser": "Mtumiaji aliyeingia",
+    "workspace": "Sehemu ya kazi ya SmartPayRW",
+    "commandCenter": "Kituo cha Usimamizi wa Mishahara",
+    "language": "Lugha"
+  },
+  "nav": {
+    "dashboard": "Dashibodi",
+    "employees": "Wafanyakazi",
+    "payroll": "Mishahara",
+    "aiChat": "Gumzo la AI",
+    "brandSubtitle": "Mishahara ya fintech",
+    "mainNavigation": "Urambazaji mkuu"
+  },
+  "auth": {
+    "loginEyebrow": "Karibu tena",
+    "loginTitle": "Ingia kwenye SmartPayRW",
+    "registerEyebrow": "Unda sehemu yako ya kazi",
+    "registerTitle": "Jisajili kwenye SmartPayRW",
+    "email": "Barua pepe",
+    "password": "Nenosiri",
+    "name": "Jina",
+    "confirmPassword": "Thibitisha nenosiri",
+    "signIn": "Ingia",
+    "signOut": "Ondoka",
+    "signingIn": "Inaingia...",
+    "createAccount": "Unda akaunti",
+    "creatingAccount": "Inaunda akaunti...",
+    "newPrompt": "Mpya kwenye SmartPayRW?",
+    "registerLink": "Unda akaunti",
+    "registeredPrompt": "Tayari umejisajili?",
+    "requiredCredentials": "Barua pepe na nenosiri vinahitajika.",
+    "loginFailed": "Kuingia kumeshindikana. Tafadhali angalia taarifa zako.",
+    "nameRequired": "Jina linahitajika.",
+    "invalidEmail": "Weka barua pepe sahihi.",
+    "passwordLength": "Nenosiri lazima liwe na angalau herufi 6.",
+    "passwordMismatch": "Nenosiri hazilingani.",
+    "registrationFailed": "Usajili umeshindikana. Tafadhali jaribu tena.",
+    "restoringSession": "Inarejesha session yako..."
+  },
+  "dashboard": {
+    "eyebrow": "Mishahara iliyo tayari kwa uzalishaji",
+    "title": "Endesha mishahara, simamia watu, na pata msaada wa AI bila kufichua siri.",
+    "description": "SmartPayRW huweka msimbo wa kivinjari safi: uthibitishaji, data ya wafanyakazi, data ya mishahara, na maombi ya AI yote hupitia API za backend zilizosanidiwa na VITE_API_URL.",
+    "cta": "Muulize msaidizi wa AI",
+    "readinessLabel": "Utayari wa muunganisho wa frontend",
+    "readiness": {
+      "authTitle": "Uthibitishaji",
+      "authDescription": "Fomu za kuingia na kujisajili zimeunganishwa na endpoints za uthibitishaji za backend.",
+      "routesTitle": "Njia zilizolindwa",
+      "routesDescription": "Kurasa kuu za fintech zinahitaji session ya JWT iliyohifadhiwa kabla ya kufikiwa.",
+      "aiTitle": "AI ya backend",
+      "aiDescription": "Gumzo la AI hutuma ujumbe kupitia endpoint ya backend pekee."
+    }
+  },
+  "employees": {
+    "eyebrow": "Uendeshaji wa watu",
+    "title": "Wafanyakazi",
+    "loading": "Inapakia wafanyakazi...",
+    "loadError": "Imeshindikana kupakia wafanyakazi.",
+    "emptyTitle": "Bado hakuna wafanyakazi",
+    "emptyMessage": "Rekodi za wafanyakazi zitaonekana hapa.",
+    "name": "Jina",
+    "email": "Barua pepe",
+    "role": "Wajibu",
+    "status": "Hali",
+    "notProvided": "Haijatolewa",
+    "defaultRole": "Mfanyakazi",
+    "active": "Hai"
+  },
+  "payroll": {
+    "eyebrow": "Malipo",
+    "title": "Mishahara",
+    "loading": "Inapakia mishahara...",
+    "loadError": "Imeshindikana kupakia rekodi za mishahara.",
+    "emptyTitle": "Hakuna rekodi za mishahara",
+    "emptyMessage": "Mizunguko ya mishahara iliyokamilika itaonekana hapa.",
+    "defaultRun": "Mzunguko wa mishahara"
+  },
+  "chat": {
+    "initialMessage": "Habari, mimi ni msaidizi wako wa SmartPayRW. Niulize kuhusu mizunguko ya mishahara, rekodi za wafanyakazi, kodi, au taratibu za kufuata sheria.",
+    "eyebrow": "Muunganisho wa AI kupitia backend pekee",
+    "title": "Gumzo la AI",
+    "description": "Frontend hutuma ujumbe kwenda POST /api/ai/chat pekee. Funguo za watoa huduma hubaki kwenye backend.",
+    "assistant": "Msaidizi",
+    "you": "Wewe",
+    "placeholder": "Uliza kuhusu mahesabu ya mishahara, wafanyakazi, PAYE, au kufuata sheria...",
+    "send": "Tuma ujumbe",
+    "sending": "Inatuma...",
+    "typing": "Msaidizi anaandika",
+    "suggestionsLabel": "Mapendekezo ya maswali",
+    "suggestions": {
+      "taxes": "Hesabu kodi za mishahara",
+      "tin": "Kagua wajibu wa TIN wa kampuni",
+      "payroll": "Jinsi ya kusimamia mishahara ya wafanyakazi?"
+    },
+    "backendError": "Imeshindikana kufikia endpoint ya AI ya backend.",
+    "fallback": "Imeshindikana kufikia huduma ya AI ya backend ya SmartPayRW. Tafadhali jaribu tena hivi karibuni.",
+    "emptyResponse": "Huduma ya AI imejibu, lakini hakuna ujumbe uliorejeshwa.",
+    "local": {
+      "backendNotice": "AI ya backend haipatikani, kwa hivyo SmartPayRW imetoa mwongozo wa mishahara wa ndani.",
+      "taxAnswer": "Kwa mshahara ghafi wa mwezi wa {{gross}}, makato yanayokadiriwa ni:\nPAYE: {{paye}}\nPensheni ya mfanyakazi: {{pension}}\nMchango wa likizo ya uzazi: {{maternity}}\nCBHI: {{cbhi}}\nMshahara halisi unaokadiriwa: {{net}}\nMichango ya mwajiri: {{employer}}\nJumla ya kutuma kila mwezi ya kupanga: {{remittance}}\n\nHii inatumia viwango vya sasa vya PAYE Rwanda na makadirio ya michango ya kisheria. Thibitisha hali maalum kama manufaa yasiyo ya fedha, ajira ya pili, misamaha, au bima maalum ya afya kabla ya kuwasilisha.",
+      "obligationsAnswer": "Wajibu wa mwajiri Rwanda kwa kawaida ni pamoja na kujisajili kwa PAYE, kukata PAYE ya wafanyakazi, kukata michango ya pensheni na uzazi ya mfanyakazi, kukusanya CBHI kwenye mshahara halisi, kulipa michango ya mwajiri ya pensheni, uzazi na hatari kazini, kushughulikia michango ya medical scheme ya RSSB inapohusika, kuwasilisha matamko ya pamoja ya PAYE/RSSB, na kuhifadhi rekodi za mishahara.",
+      "runPayrollAnswer": "Ili kuendesha mishahara kwa usahihi: thibitisha data za wafanyakazi na manufaa yanayotozwa kodi, hesabu mapato ghafi yanayotozwa kodi, tumia viwango vya PAYE Rwanda, kata pensheni, uzazi na CBHI upande wa mfanyakazi, ongeza wajibu wa RSSB wa mwajiri, linganisha jumla, wasilisha PAYE/RSSB kwa wakati, lipa kupitia njia rasmi, na hifadhi payslips pamoja na risiti za matamko.",
+      "tinAnswer": "TIN {{tin}} inaonekana kama {{company}} kwenye uchambuzi wa SmartPayRW.\nWafanyakazi: {{employees}}\nMishahara ghafi ya mwezi inayokadiriwa: {{gross}}\nMalipo ya mishahara ya mwezi yanayokadiriwa: {{remittance}}\nKiwango cha hatari: {{risk}}\n\nTumia hili kama kadirio la kupanga isipokuwa lithibitishwe na rekodi za RRA/RSSB.",
+      "tinMissing": "Weka na uchambue TIN ya kampuni kwanza, kisha ninaweza kueleza wajibu unaowezekana wa PAYE, RSSB, CBHI na madeni ya mishahara kwa biashara hiyo."
+    }
+  },
+  "tin": {
+    "eyebrow": "Uchambuzi wa TIN",
+    "title": "Uchambuzi wa TIN ya kampuni",
+    "description": "Chambua TIN ya kampuni ili kuona wajibu wa mishahara, madeni yanayowezekana na makadirio ya mwezi. Ikiwa hakuna endpoint halisi, SmartPayRW huiga data halisi ya kupanga.",
+    "inputLabel": "Nambari ya TIN ya kampuni",
+    "placeholder": "Weka TIN ya tarakimu 9",
+    "analyze": "Chambua TIN",
+    "analyzing": "Inachambua...",
+    "company": "Kampuni",
+    "status": "Hali",
+    "riskLabel": "Hatari",
+    "sourceLabel": "Chanzo",
+    "invalidTin": "TIN si sahihi",
+    "statuses": {
+      "active": "Hai",
+      "invalid": "Si sahihi"
+    },
+    "risk": {
+      "low": "Chini",
+      "medium": "Wastani",
+      "high": "Juu"
+    },
+    "source": {
+      "backend": "Backend",
+      "simulation": "Uigaji"
+    },
+    "metrics": {
+      "employees": "Wafanyakazi",
+      "grossPayroll": "Mishahara ghafi ya mwezi",
+      "paye": "PAYE inayokadiriwa",
+      "totalRemittance": "Jumla ya kutuma"
+    },
+    "obligationsTitle": "Wajibu wa kodi",
+    "obligations": {
+      "paye": "Kata PAYE kwenye mapato ya ajira na uitangaze/uilipe kwa RRA kufikia siku ya 15 baada ya kipindi cha kodi.",
+      "pensionEmployee": "Kata mchango wa pensheni ya mfanyakazi wa 6% ya mshahara ghafi.",
+      "pensionEmployer": "Lipa mchango wa pensheni ya mwajiri wa 6% ya mshahara ghafi.",
+      "maternity": "Tumia mchango wa uzazi wa 0.3% upande wa mfanyakazi na 0.3% upande wa mwajiri.",
+      "occupationalHazard": "Lipa mchango wa mwajiri wa hatari kazini wa 2% ya mshahara ghafi.",
+      "cbhi": "Kata CBHI ya 0.5% ya mshahara halisi wa mfanyakazi na uitume kupitia mchakato wa mwajiri.",
+      "medicalScheme": "Pale medical scheme ya RSSB inapohusika, panga mchango wa 7.5% wa mfanyakazi na 7.5% wa mwajiri kwenye mshahara msingi.",
+      "unifiedDeclaration": "Tumia matamko ya pamoja ya PAYE/RSSB yanapopatikana na uhifadhi ushahidi wa mishahara."
+    },
+    "liabilitiesTitle": "Madeni yanayowezekana",
+    "liabilities": {
+      "lateSurcharge": "Kadirio la adhabu ya kuchelewa kwa miezi {{months}}: {{amount}}.",
+      "underpayment": "Kadirio la upungufu wa PAYE uliolipwa: {{amount}}."
+    },
+    "askAi": "Uliza AI kuhusu TIN hii",
+    "askPrompt": "Chambua TIN {{tin}} na ueleze wajibu wa mishahara, madeni, na hatua zinazofuata za kufuata sheria.",
+    "chatSummary": "TIN {{tin}} imechambuliwa kutoka data ya {{source}}.\nKampuni: {{company}}\nWafanyakazi: {{employees}}\nMishahara ghafi ya mwezi: {{gross}}\nMalipo yanayokadiriwa: {{remittance}}",
+    "invalidSummary": "TIN {{tin}} haikuweza kuthibitishwa. Tafadhali angalia nambari na ujaribu tena."
+  },
+  "common": {
+    "loading": "Inapakia...",
+    "error": "Hitilafu"
+  }
+}

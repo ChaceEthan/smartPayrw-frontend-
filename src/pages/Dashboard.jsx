@@ -1,40 +1,40 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const readinessItems = [
   {
-    title: "Authentication",
-    description: "Login and registration forms are wired to backend auth endpoints.",
+    titleKey: "dashboard.readiness.authTitle",
+    descriptionKey: "dashboard.readiness.authDescription",
   },
   {
-    title: "Protected Routes",
-    description: "Core fintech pages require a persisted JWT session before access.",
+    titleKey: "dashboard.readiness.routesTitle",
+    descriptionKey: "dashboard.readiness.routesDescription",
   },
   {
-    title: "Backend AI",
-    description: "AI chat sends messages only through the backend integration endpoint.",
+    titleKey: "dashboard.readiness.aiTitle",
+    descriptionKey: "dashboard.readiness.aiDescription",
   },
 ];
 
 export default function Dashboard() {
+  const { t } = useTranslation();
+
   return (
     <div className="page-grid">
       <section className="hero-card">
-        <p className="eyebrow">Production-ready payroll</p>
-        <h2>Run payroll, manage people, and get AI help without exposing secrets.</h2>
-        <p>
-          SmartPayRW keeps browser code clean: authentication, employee data, payroll data, and AI
-          requests all flow through backend APIs configured by <code>VITE_API_URL</code>.
-        </p>
+        <p className="eyebrow">{t("dashboard.eyebrow")}</p>
+        <h2>{t("dashboard.title")}</h2>
+        <p>{t("dashboard.description")}</p>
         <Link className="button button--primary" to="/ai-chat">
-          Ask the AI assistant
+          {t("dashboard.cta")}
         </Link>
       </section>
 
-      <section className="stats-grid" aria-label="Frontend integration readiness">
+      <section className="stats-grid" aria-label={t("dashboard.readinessLabel")}>
         {readinessItems.map((item) => (
-          <article className="stat-card" key={item.title}>
-            <span>{item.title}</span>
-            <p>{item.description}</p>
+          <article className="stat-card" key={item.titleKey}>
+            <span>{t(item.titleKey)}</span>
+            <p>{t(item.descriptionKey)}</p>
           </article>
         ))}
       </section>

@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import EmptyState from "../components/shared/EmptyState.jsx";
 import Loader from "../components/ui/Loader.jsx";
 import Skeleton from "../components/ui/Skeleton.jsx";
@@ -11,6 +12,7 @@ function normalizeEmployees(data) {
 }
 
 export default function Employees() {
+  const { t } = useTranslation();
   const [employees, setEmployees] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +28,7 @@ export default function Employees() {
         }
       } catch (err) {
         if (isMounted) {
-          setError(getApiErrorMessage(err, "Unable to load employees."));
+          setError(getApiErrorMessage(err, t("employees.loadError")));
         }
       } finally {
         if (isMounted) {
@@ -40,18 +42,18 @@ export default function Employees() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [t]);
 
   return (
     <section className="panel">
       <div className="section-heading">
-        <p className="eyebrow">People operations</p>
-        <h2>Employees</h2>
+        <p className="eyebrow">{t("employees.eyebrow")}</p>
+        <h2>{t("employees.title")}</h2>
       </div>
 
       {isLoading && (
         <div className="stack">
-          <Loader label="Loading employees..." />
+          <Loader label={t("employees.loading")} />
           <Skeleton style={{ height: 48 }} />
           <Skeleton style={{ height: 48 }} />
         </div>
@@ -60,7 +62,7 @@ export default function Employees() {
       {error && <div className="alert alert--error">{error}</div>}
 
       {!isLoading && !error && employees.length === 0 && (
-        <EmptyState title="No employees yet" message="Employee records will appear here." />
+        <EmptyState title={t("employees.emptyTitle")} message={t("employees.emptyMessage")} />
       )}
 
       {!isLoading && !error && employees.length > 0 && (
@@ -68,19 +70,19 @@ export default function Employees() {
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>{t("employees.name")}</th>
+                <th>{t("employees.email")}</th>
+                <th>{t("employees.role")}</th>
+                <th>{t("employees.status")}</th>
               </tr>
             </thead>
             <tbody>
               {employees.map((employee) => (
                 <tr key={employee.id || employee._id || employee.email}>
                   <td>{employee.name || `${employee.firstName || ""} ${employee.lastName || ""}`}</td>
-                  <td>{employee.email || "Not provided"}</td>
-                  <td>{employee.role || employee.position || "Employee"}</td>
-                  <td>{employee.status || "Active"}</td>
+                  <td>{employee.email || t("employees.notProvided")}</td>
+                  <td>{employee.role || employee.position || t("employees.defaultRole")}</td>
+                  <td>{employee.status || t("employees.active")}</td>
                 </tr>
               ))}
             </tbody>

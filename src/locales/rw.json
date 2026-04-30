@@ -1,0 +1,167 @@
+{
+  "app": {
+    "authenticatedUser": "Umukoresha winjiye",
+    "workspace": "Umwanya wa SmartPayRW",
+    "commandCenter": "Ikigo cyo kuyobora imishahara",
+    "language": "Ururimi"
+  },
+  "nav": {
+    "dashboard": "Imbonerahamwe",
+    "employees": "Abakozi",
+    "payroll": "Imishahara",
+    "aiChat": "Ikiganiro cya AI",
+    "brandSubtitle": "Imishahara ya fintech",
+    "mainNavigation": "Inzira z'ingenzi"
+  },
+  "auth": {
+    "loginEyebrow": "Murakaza neza",
+    "loginTitle": "Injira muri SmartPayRW",
+    "registerEyebrow": "Hanga umwanya wawe",
+    "registerTitle": "Iyandikishe kuri SmartPayRW",
+    "email": "Imeyili",
+    "password": "Ijambo ryibanga",
+    "name": "Izina",
+    "confirmPassword": "Emeza ijambo ryibanga",
+    "signIn": "Injira",
+    "signOut": "Sohoka",
+    "signingIn": "Birimo kwinjira...",
+    "createAccount": "Hanga konti",
+    "creatingAccount": "Birimo guhanga konti...",
+    "newPrompt": "Uri mushya kuri SmartPayRW?",
+    "registerLink": "Hanga konti",
+    "registeredPrompt": "Usanzwe wiyandikishije?",
+    "requiredCredentials": "Imeyili n'ijambo ryibanga birakenewe.",
+    "loginFailed": "Kwinjira byanze. Ongera urebe imyirondoro yawe.",
+    "nameRequired": "Izina rirakenewe.",
+    "invalidEmail": "Shyiramo imeyili nyayo.",
+    "passwordLength": "Ijambo ryibanga rigomba kugira nibura inyuguti 6.",
+    "passwordMismatch": "Amagambo y'ibanga ntahura.",
+    "registrationFailed": "Kwiyandikisha byanze. Ongera ugerageze.",
+    "restoringSession": "Birimo kugarura session yawe..."
+  },
+  "dashboard": {
+    "eyebrow": "Imishahara yiteguye gukoreshwa",
+    "title": "Koresha imishahara, ucunge abakozi, kandi ubone ubufasha bwa AI udashyize amabanga hanze.",
+    "description": "SmartPayRW ituma kode yo muri browser iba isukuye: kwinjira, amakuru y'abakozi, amakuru y'imishahara, n'ibyifuzo bya AI byose binyura muri API zo kuri backend zagenwe na VITE_API_URL.",
+    "cta": "Baza umufasha wa AI",
+    "readinessLabel": "Uko frontend yiteguye guhuzwa",
+    "readiness": {
+      "authTitle": "Kwemeza umwirondoro",
+      "authDescription": "Ifishi zo kwinjira no kwiyandikisha zihujwe na endpoints za backend.",
+      "routesTitle": "Inzira zirinzwe",
+      "routesDescription": "Amapaji y'ingenzi ya fintech asaba session ya JWT ibitswe mbere yo kuyageraho.",
+      "aiTitle": "AI yo kuri backend",
+      "aiDescription": "Ikiganiro cya AI cyohereza ubutumwa binyuze gusa kuri endpoint ya backend."
+    }
+  },
+  "employees": {
+    "eyebrow": "Imicungire y'abakozi",
+    "title": "Abakozi",
+    "loading": "Birimo gupakira abakozi...",
+    "loadError": "Ntibyakunze gupakira abakozi.",
+    "emptyTitle": "Nta bakozi barongerwamo",
+    "emptyMessage": "Amakuru y'abakozi azagaragara hano.",
+    "name": "Izina",
+    "email": "Imeyili",
+    "role": "Inshingano",
+    "status": "Imiterere",
+    "notProvided": "Ntibyatanzwe",
+    "defaultRole": "Umukozi",
+    "active": "Akora"
+  },
+  "payroll": {
+    "eyebrow": "Ibihembo",
+    "title": "Imishahara",
+    "loading": "Birimo gupakira imishahara...",
+    "loadError": "Ntibyakunze gupakira inyandiko z'imishahara.",
+    "emptyTitle": "Nta nyandiko z'imishahara",
+    "emptyMessage": "Imishahara yarangijwe izagaragara hano.",
+    "defaultRun": "Igikorwa cy'imishahara"
+  },
+  "chat": {
+    "initialMessage": "Muraho, ndi umufasha wa SmartPayRW. Mbaza ku gukora imishahara, amakuru y'abakozi, imisoro, cyangwa kubahiriza amategeko.",
+    "eyebrow": "AI ihuzwa binyuze kuri backend gusa",
+    "title": "Ikiganiro cya AI",
+    "description": "Frontend yohereza ubutumwa gusa kuri POST /api/ai/chat. Imfunguzo z'abatanga serivisi ziguma kuri backend.",
+    "assistant": "Umufasha",
+    "you": "Wowe",
+    "placeholder": "Baza ku kubara imishahara, abakozi, PAYE, cyangwa kubahiriza amategeko...",
+    "send": "Ohereza ubutumwa",
+    "sending": "Birimo kohereza...",
+    "typing": "Umufasha arimo kwandika",
+    "suggestionsLabel": "Ibyifuzo by'ibibazo",
+    "suggestions": {
+      "taxes": "Bara imisoro ku mishahara",
+      "tin": "Reba inshingano za TIN z'ikigo",
+      "payroll": "Ni gute nacunga imishahara y'abakozi?"
+    },
+    "backendError": "Ntibyakunze kugera kuri endpoint ya AI yo kuri backend.",
+    "fallback": "Ntibyakunze kugera kuri serivisi ya AI ya SmartPayRW. Ongera ugerageze mu kanya.",
+    "emptyResponse": "Serivisi ya AI yasubije, ariko nta butumwa bugarutse.",
+    "local": {
+      "backendNotice": "AI yo kuri backend ntiri kuboneka, bityo SmartPayRW yatanze inama z'imishahara zibarwa hano.",
+      "taxAnswer": "Ku mushahara mbumbe wa buri kwezi ungana na {{gross}}, igipimo cy'ibikurwaho ni:\nPAYE: {{paye}}\nPansiyo y'umukozi: {{pension}}\nUmusanzu w'ikiruhuko cyo kubyara: {{maternity}}\nCBHI: {{cbhi}}\nUmushahara usigara: {{net}}\nImisanzu y'umukoresha: {{employer}}\nAmafaranga yo guteganya kohereza buri kwezi: {{remittance}}\n\nIbi bishingiye ku byiciro bya PAYE n'imisanzu ikoreshwa mu Rwanda. Emeza ibidasanzwe nk'inyungu zitari amafaranga, akazi ka kabiri, ubusonerwe, cyangwa ubwishingizi bwihariye mbere yo gutanga imenyekanisha.",
+      "obligationsAnswer": "Inshingano z'umukoresha mu Rwanda akenshi zirimo kwiyandikisha kuri PAYE, gukata PAYE y'abakozi, gukata pansiyo na maternity by'umukozi, gukusanya CBHI ku mushahara usigaye, kwishyura imisanzu y'umukoresha ya pansiyo, maternity na occupational hazard, kwita ku misanzu ya medical scheme ya RSSB aho ikurikizwa, gutanga imenyekanisha rihuriweho rya PAYE/RSSB, no kubika inyandiko z'imishahara.",
+      "runPayrollAnswer": "Kugira ngo ukoreshe imishahara neza: banza wemeze amakuru y'abakozi n'inyungu zisoreshwa, bara umushahara mbumbe usoreshwa, bara PAYE ukoresheje ibyiciro byo mu Rwanda, kata pansiyo, maternity na CBHI by'umukozi, ongeraho inshingano za RSSB z'umukoresha, huza imibare, tanga PAYE/RSSB ku gihe, wishyure unyuze mu nzira zemewe, kandi ubike payslips n'inyemezabwishyu.",
+      "tinAnswer": "TIN {{tin}} igaragara nka {{company}} mu isesengura rya SmartPayRW.\nAbakozi: {{employees}}\nUmushahara mbumbe w'ukwezi ugereranyijwe: {{gross}}\nAmafaranga y'imishahara yo kohereza buri kwezi: {{remittance}}\nUrwego rw'ibyago: {{risk}}\n\nBikoreshe nk'igereranya ryo gutegura keretse byemejwe n'inyandiko za RRA/RSSB.",
+      "tinMissing": "Banza wandike kandi usesengure TIN y'ikigo, hanyuma nshobore gusobanura PAYE, RSSB, CBHI n'ibyago by'imishahara bishoboka kuri icyo kigo."
+    }
+  },
+  "tin": {
+    "eyebrow": "Ubusesenguzi bwa TIN",
+    "title": "Isesengura rya TIN y'ikigo",
+    "description": "Sesengura TIN y'ikigo kugira ngo ubone inshingano z'imishahara, ibyago bishoboka, n'igereranya ry'ukwezi. Iyo endpoint nyayo itabonetse, SmartPayRW ikora simulation y'amakuru afatika.",
+    "inputLabel": "Nomero ya TIN y'ikigo",
+    "placeholder": "Andika TIN y'imibare 9",
+    "analyze": "Sesengura TIN",
+    "analyzing": "Birimo gusesengura...",
+    "company": "Ikigo",
+    "status": "Imiterere",
+    "riskLabel": "Ibyago",
+    "sourceLabel": "Inkomoko",
+    "invalidTin": "TIN si yo",
+    "statuses": {
+      "active": "Irakora",
+      "invalid": "Si yo"
+    },
+    "risk": {
+      "low": "Bike",
+      "medium": "Biringaniye",
+      "high": "Byinshi"
+    },
+    "source": {
+      "backend": "Backend",
+      "simulation": "Simulation"
+    },
+    "metrics": {
+      "employees": "Abakozi",
+      "grossPayroll": "Umushahara mbumbe w'ukwezi",
+      "paye": "PAYE igereranyijwe",
+      "totalRemittance": "Amafaranga yose yo kohereza"
+    },
+    "obligationsTitle": "Inshingano z'imisoro",
+    "obligations": {
+      "paye": "Kata PAYE ku mushahara w'abakozi kandi uyimenyeshe/u yishyure muri RRA bitarenze umunsi wa 15 nyuma y'igihe cy'umusoro.",
+      "pensionEmployee": "Kata umusanzu wa pansiyo w'umukozi ungana na 6% by'umushahara mbumbe.",
+      "pensionEmployer": "Ishyura umusanzu wa pansiyo w'umukoresha ungana na 6% by'umushahara mbumbe.",
+      "maternity": "Koresha umusanzu wa maternity ungana na 0.3% ku mukozi na 0.3% ku mukoresha.",
+      "occupationalHazard": "Ishyura umusanzu wa occupational hazard w'umukoresha ungana na 2% by'umushahara mbumbe.",
+      "cbhi": "Kata CBHI ingana na 0.5% by'umushahara usigaye w'umukozi kandi uyohereze biciye ku mukoresha.",
+      "medicalScheme": "Aho medical scheme ya RSSB ikurikizwa, teganya umusanzu wa 7.5% w'umukozi na 7.5% w'umukoresha ku mushahara fatizo.",
+      "unifiedDeclaration": "Koresha imenyekanisha rihuriweho rya PAYE/RSSB aho riboneka kandi ubike ibimenyetso by'imishahara."
+    },
+    "liabilitiesTitle": "Ibyago bishoboka",
+    "liabilities": {
+      "lateSurcharge": "Igereranya ry'inyongera ku kwishyura utinze amezi {{months}}: {{amount}}.",
+      "underpayment": "Igereranya ry'ikinyuranyo cya PAYE kitishyuwe: {{amount}}."
+    },
+    "askAi": "Baza AI kuri iyi TIN",
+    "askPrompt": "Sesengura TIN {{tin}} kandi usobanure inshingano z'imishahara, ibyago, n'intambwe zikurikira zo kubahiriza amategeko.",
+    "chatSummary": "TIN {{tin}} yasesenguwe hashingiwe ku makuru ya {{source}}.\nIkigo: {{company}}\nAbakozi: {{employees}}\nUmushahara mbumbe w'ukwezi: {{gross}}\nAmafaranga agomba koherezwa: {{remittance}}",
+    "invalidSummary": "TIN {{tin}} ntiyashoboye kwemezwa. Ongera urebe nomero ugerageze."
+  },
+  "common": {
+    "loading": "Birimo gupakira...",
+    "error": "Ikosa"
+  }
+}
