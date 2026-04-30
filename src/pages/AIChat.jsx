@@ -29,6 +29,27 @@ const suggestionKeys = [
   "chat.suggestions.employees",
 ];
 
+const workflowActions = [
+  {
+    key: "tax",
+    labelKey: "chat.workflow.tax",
+    textKey: "chat.workflow.taxText",
+    promptKey: "chat.workflow.taxPrompt",
+  },
+  {
+    key: "employees",
+    labelKey: "chat.workflow.employees",
+    textKey: "chat.workflow.employeesText",
+    promptKey: "chat.workflow.employeesPrompt",
+  },
+  {
+    key: "payroll",
+    labelKey: "chat.workflow.payroll",
+    textKey: "chat.workflow.payrollText",
+    promptKey: "chat.workflow.payrollPrompt",
+  },
+];
+
 const payrollIntentPattern =
   /payroll|salary|tax|paye|rssb|deduction|gross|net pay|remittance|company|employee|paie|salaire|taxe|impot|entreprise|employe|imishahara|umushahara|umusoro|imisoro|ikigo|abakozi|mishahara|kodi|kampuni|mfanyakazi|wafanyakazi/i;
 const tinIntentPattern = /tin|tax identification|rra|company tin|ikigo|kampuni|entreprise/i;
@@ -846,6 +867,21 @@ export default function AIChat() {
             </button>
           );
         })}
+      </div>
+
+      <div className="ai-workflow-grid" aria-label={t("chat.workflow.label")}>
+        {workflowActions.map((action) => (
+          <button
+            key={action.key}
+            type="button"
+            className="ai-workflow-card"
+            onClick={() => handleSuggestionClick(t(action.promptKey))}
+            disabled={isSending}
+          >
+            <strong>{t(action.labelKey)}</strong>
+            <span>{t(action.textKey)}</span>
+          </button>
+        ))}
       </div>
 
       <form className="tin-analyzer" onSubmit={handleTinSubmit}>

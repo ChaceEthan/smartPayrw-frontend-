@@ -8,11 +8,14 @@
   "nav": {
     "dashboard": "Dashboard",
     "company": "Company",
+    "taxDashboard": "Tax Dashboard",
+    "business": "Business",
     "employees": "Employees",
     "payroll": "Payroll",
     "payments": "Payments",
     "pension": "Pension",
     "reports": "Reports",
+    "admin": "Admin",
     "aiChat": "AI Chat",
     "brandSubtitle": "Fintech payroll",
     "mainNavigation": "Main navigation",
@@ -20,11 +23,14 @@
     "short": {
       "dashboard": "Home",
       "company": "Company",
+      "taxDashboard": "Tax",
+      "business": "Sales",
       "employees": "People",
       "payroll": "Pay",
       "payments": "Cash",
       "pension": "RSSB",
       "reports": "Reports",
+      "admin": "Admin",
       "aiChat": "AI"
     }
   },
@@ -200,6 +206,139 @@
     "paymentTitle": "Payment report",
     "paymentText": "Track payments made through mobile money or other channels."
   },
+  "tax": {
+    "eyebrow": "TIN tax cockpit",
+    "title": "See payroll tax, RSSB, pension, and payment steps from one TIN.",
+    "description": "SmartPayRW turns business tax work into a faster dashboard with cards, simple deadlines, and AI-ready context.",
+    "tinLabel": "Company TIN",
+    "tinPlaceholder": "Enter TIN",
+    "analyze": "Analyze taxes",
+    "analyzing": "Analyzing...",
+    "validation": "Enter a valid company TIN.",
+    "loadError": "Unable to load tax data for this TIN.",
+    "companySectionEyebrow": "Company info",
+    "companySectionTitle": "TIN-based company profile",
+    "companySectionText": "Use this view to confirm the company before reviewing payroll tax obligations.",
+    "cards": {
+      "company": "Company",
+      "payroll": "Payroll summary",
+      "payrollCaption": "{{count}} employee(s) included",
+      "paye": "PAYE",
+      "payeCaption": "Estimated employment tax",
+      "rssb": "RSSB",
+      "rssbCaption": "Payroll remittance to plan",
+      "pension": "Pension",
+      "pensionCaption": "Employee and employer share"
+    },
+    "deadlines": {
+      "eyebrow": "Deadlines",
+      "title": "What to do before the deadline",
+      "payeTitle": "PAYE filing",
+      "payeText": "Review salary data and pay PAYE before the 15th day of the next month.",
+      "rssbTitle": "RSSB declaration",
+      "rssbText": "Prepare RSSB pension and statutory contributions before the same monthly deadline.",
+      "recordsTitle": "Monthly records",
+      "recordsText": "Keep payroll, payslips, and payment receipts ready for review."
+    },
+    "innovation": {
+      "fastTitle": "Faster than long forms",
+      "fastText": "Important tax numbers appear as cards immediately after TIN review.",
+      "simpleTitle": "Simple flows",
+      "simpleText": "Business owners move from TIN to payment guidance without complex screens.",
+      "aiTitle": "AI explanations",
+      "aiText": "The assistant can explain PAYE, RSSB, and next steps in plain language."
+    }
+  },
+  "paymentGuide": {
+    "eyebrow": "Payment guide",
+    "title": "Pay by phone or bank",
+    "description": "Ushobora kwishyura ukoresheje telefoni cyangwa banki",
+    "mtnTitle": "MTN *182#",
+    "mtnStepOne": "Dial *182# and choose payment services.",
+    "mtnStepTwo": "Enter the tax or bill reference from SmartPayRW.",
+    "mtnStepThree": "Confirm the amount and keep the SMS receipt.",
+    "bankTitle": "Bank payment",
+    "bankText": "Use your bank channel with the correct company TIN, tax period, and payment reference.",
+    "etaxTitle": "E-tax",
+    "etaxText": "E-tax is where official declarations are submitted. SmartPayRW prepares a simpler checklist before you file."
+  },
+  "business": {
+    "eyebrow": "EBM-lite",
+    "title": "Record daily sales without heavy forms.",
+    "description": "Add transactions, view daily sales, and keep simple reports for small business operations.",
+    "formEyebrow": "Transaction",
+    "formTitle": "Add transaction",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Example: Sale to customer",
+    "amount": "Amount",
+    "amountPlaceholder": "Enter amount",
+    "paymentMethod": "Payment method",
+    "date": "Date",
+    "add": "Add transaction",
+    "validation": "Description and amount are required.",
+    "methods": {
+      "cash": "Cash",
+      "momo": "Mobile money",
+      "bank": "Bank",
+      "card": "Card"
+    },
+    "cards": {
+      "today": "Daily sales",
+      "todayCaption": "Sales recorded today",
+      "transactions": "Transactions",
+      "transactionsCaption": "Total entries",
+      "total": "Total sales",
+      "totalCaption": "All recorded sales",
+      "average": "Average sale",
+      "averageCaption": "Average transaction value"
+    },
+    "dailyEyebrow": "Daily view",
+    "dailyTitle": "View daily sales",
+    "chooseDate": "Choose date",
+    "dailySales": "Sales for selected day",
+    "emptyTitle": "No sales for this day",
+    "emptyMessage": "Transactions you add for this date will appear here.",
+    "reportEyebrow": "Reports",
+    "reportTitle": "Simple business report",
+    "reportText": "Use this as an EBM-lite operating view before formal reporting.",
+    "simpleReport": "{{count}} transaction(s) recorded with total sales of {{total}}."
+  },
+  "admin": {
+    "eyebrow": "Admin dashboard",
+    "title": "Monitor users, companies, payroll, and tax readiness.",
+    "description": "A clean admin view for SmartPayRW operations without complex back-office screens.",
+    "loading": "Loading admin data...",
+    "notice": "Live admin data is unavailable, so SmartPayRW is showing the current workspace data.",
+    "cards": {
+      "users": "Total users",
+      "usersCaption": "Signed-in user plus employees",
+      "companies": "Companies",
+      "payroll": "Payroll stats",
+      "payrollCaption": "Gross payroll visible to the workspace",
+      "taxes": "Tax stats",
+      "taxesCaption": "PAYE and tax values from payroll records",
+      "sales": "Sales",
+      "salesCaption": "EBM-lite transactions"
+    },
+    "healthEyebrow": "System health",
+    "healthTitle": "Workspace readiness",
+    "health": {
+      "company": "Company registration",
+      "employees": "Employee records",
+      "transactions": "Business transactions",
+      "ready": "Ready",
+      "pending": "Pending"
+    },
+    "workflowEyebrow": "Operations",
+    "workflowTitle": "AI-assisted workflows",
+    "workflowText": "SmartPayRW keeps admin work short: review, explain, and act from one dashboard.",
+    "workflow": {
+      "payrollTitle": "Payroll review",
+      "payrollText": "Check salaries and statutory totals before payment.",
+      "taxTitle": "Tax follow-up",
+      "taxText": "Use TIN, payroll, and AI explanation together."
+    }
+  },
   "payments": {
     "eyebrow": "Mobile money",
     "title": "Request payment",
@@ -254,6 +393,18 @@
       "tin": "Check my company TIN",
       "employees": "How to manage employees?"
     },
+    "workflow": {
+      "label": "AI workflow suggestions",
+      "tax": "Reba imisoro yawe",
+      "taxText": "Review PAYE, RSSB, pension, and deadlines.",
+      "taxPrompt": "Reba imisoro yawe using my real company and employee data.",
+      "employees": "Ongeramo abakozi",
+      "employeesText": "Prepare employee data needed for payroll.",
+      "employeesPrompt": "Help me add employees and salary data correctly.",
+      "payroll": "Kora payroll",
+      "payrollText": "Turn salaries into PAYE, RSSB, and payment steps.",
+      "payrollPrompt": "Kora payroll for my company and show the tax cards."
+    },
     "cards": {
       "companyInfo": "Company info",
       "payrollExposure": "Payroll exposure",
@@ -288,7 +439,7 @@
   "tin": {
     "eyebrow": "TIN intelligence",
     "title": "Company TIN analysis",
-    "description": "Analyze a company TIN for payroll obligations, possible liabilities, and estimated monthly payroll exposure. If live data is unavailable, SmartPayRW shows realistic planning data.",
+    "description": "Analyze a company TIN for payroll obligations, possible liabilities, and monthly payroll exposure from the connected backend.",
     "inputLabel": "Company TIN number",
     "placeholder": "Enter 9-digit TIN",
     "analyze": "Analyze TIN",

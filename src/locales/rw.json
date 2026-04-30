@@ -8,11 +8,14 @@
   "nav": {
     "dashboard": "Imbonerahamwe",
     "company": "Ikigo cyawe",
+    "taxDashboard": "Imisoro",
+    "business": "Ubucuruzi",
     "employees": "Abakozi",
     "payroll": "Imishahara",
     "payments": "Ubwishyu",
     "pension": "Pansiyo",
     "reports": "Raporo",
+    "admin": "Admin",
     "aiChat": "Umufasha",
     "brandSubtitle": "Serivisi y'imishahara",
     "mainNavigation": "Inzira z'ingenzi",
@@ -20,11 +23,14 @@
     "short": {
       "dashboard": "Ahabanza",
       "company": "Ikigo",
+      "taxDashboard": "Imisoro",
+      "business": "Ibyacurujwe",
       "employees": "Abakozi",
       "payroll": "Mishahara",
       "payments": "Ubwishyu",
       "pension": "Pansiyo",
       "reports": "Raporo",
+      "admin": "Admin",
       "aiChat": "Baza"
     }
   },
@@ -200,6 +206,139 @@
     "paymentTitle": "Raporo y'ubwishyu",
     "paymentText": "Kurikirana ubwishyu bwakozwe na mobile money cyangwa indi nzira."
   },
+  "tax": {
+    "eyebrow": "Imisoro ishingiye kuri TIN",
+    "title": "Reba PAYE, RSSB, pansiyo n'uko wishyura ukoresheje TIN.",
+    "description": "SmartPayRW iguha imisoro mu makarita yoroshye, igihe ntarengwa n'ibisobanuro by'umufasha.",
+    "tinLabel": "TIN y'ikigo",
+    "tinPlaceholder": "Andika TIN",
+    "analyze": "Reba imisoro",
+    "analyzing": "Birimo kureba...",
+    "validation": "Andika TIN y'ikigo ikora.",
+    "loadError": "Ntibyakunze kubona amakuru y'imisoro kuri iyi TIN.",
+    "companySectionEyebrow": "Amakuru y'ikigo",
+    "companySectionTitle": "Ikigo gishingiye kuri TIN",
+    "companySectionText": "Banza wemeze ikigo mbere yo kureba inshingano z'imishahara n'imisoro.",
+    "cards": {
+      "company": "Ikigo",
+      "payroll": "Imishahara yawe",
+      "payrollCaption": "Harimo abakozi {{count}}",
+      "paye": "PAYE",
+      "payeCaption": "Umusoro ku mushahara",
+      "rssb": "RSSB",
+      "rssbCaption": "Amafaranga yo guteganya kohereza",
+      "pension": "Pansiyo",
+      "pensionCaption": "Uruhare rw'umukozi n'urw'umukoresha"
+    },
+    "deadlines": {
+      "eyebrow": "Igihe ntarengwa",
+      "title": "Ibyo gukora mbere y'igihe ntarengwa",
+      "payeTitle": "Kumenyekanisha PAYE",
+      "payeText": "Reba neza imishahara kandi wishyure PAYE mbere ya tariki ya 15 y'ukwezi gukurikira.",
+      "rssbTitle": "Kumenyekanisha RSSB",
+      "rssbText": "Tegura pansiyo ya RSSB n'indi misanzu mbere y'igihe kimwe cya buri kwezi.",
+      "recordsTitle": "Inyandiko z'ukwezi",
+      "recordsText": "Bika imishahara, impapuro z'umushahara n'inyemezabwishyu."
+    },
+    "innovation": {
+      "fastTitle": "Byihuta kurusha amafishi maremare",
+      "fastText": "Imibare y'ingenzi igaragara mu makarita ako kanya.",
+      "simpleTitle": "Inzira zoroshye",
+      "simpleText": "Uva kuri TIN ukagera ku buryo bwo kwishyura utanyuze mu mafishi menshi.",
+      "aiTitle": "Ibisobanuro bya AI",
+      "aiText": "Umufasha asobanura PAYE, RSSB n'intambwe zikurikira mu magambo yoroshye."
+    }
+  },
+  "paymentGuide": {
+    "eyebrow": "Uko wishyura",
+    "title": "Ishyura ukoresheje telefoni cyangwa banki",
+    "description": "Ushobora kwishyura ukoresheje telefoni cyangwa banki",
+    "mtnTitle": "MTN *182#",
+    "mtnStepOne": "Kanda *182# uhitemo serivisi zo kwishyura.",
+    "mtnStepTwo": "Shyiramo kode y'umusoro cyangwa kode yo kwishyura wahawe na SmartPayRW.",
+    "mtnStepThree": "Emeza amafaranga, ubike ubutumwa bwa SMS.",
+    "bankTitle": "Kwishyura kuri banki",
+    "bankText": "Koresha banki yawe, ushyiremo TIN y'ikigo, igihe cy'umusoro na kode yo kwishyura.",
+    "etaxTitle": "E-tax",
+    "etaxText": "E-tax ni yo ikoreshwa mu gutanga imenyekanisha. SmartPayRW igutegurira urutonde rworoshye mbere yo gutanga."
+  },
+  "business": {
+    "eyebrow": "EBM-lite",
+    "title": "Andika ibyacurujwe buri munsi utujuje amafishi menshi.",
+    "description": "Ongeramo transaction, urebe ibyacurujwe by'umunsi, kandi ubone raporo yoroshye y'ubucuruzi.",
+    "formEyebrow": "Transaction",
+    "formTitle": "Ongeramo transaction",
+    "descriptionLabel": "Ibisobanuro",
+    "descriptionPlaceholder": "Urugero: Igicuruzwa ku mukiriya",
+    "amount": "Amafaranga",
+    "amountPlaceholder": "Andika amafaranga",
+    "paymentMethod": "Uburyo bwo kwishyura",
+    "date": "Itariki",
+    "add": "Ongeramo transaction",
+    "validation": "Ibisobanuro n'amafaranga birakenewe.",
+    "methods": {
+      "cash": "Cash",
+      "momo": "Mobile money",
+      "bank": "Banki",
+      "card": "Ikarita"
+    },
+    "cards": {
+      "today": "Ibyacurujwe uyu munsi",
+      "todayCaption": "Amafaranga yinjiye uyu munsi",
+      "transactions": "Transactions",
+      "transactionsCaption": "Inyandiko zose",
+      "total": "Ibyacurujwe byose",
+      "totalCaption": "Amafaranga yose yanditswe",
+      "average": "Impuzandengo",
+      "averageCaption": "Impuzandengo ya transaction"
+    },
+    "dailyEyebrow": "Umunsi ku munsi",
+    "dailyTitle": "Reba ibyacurujwe by'umunsi",
+    "chooseDate": "Hitamo itariki",
+    "dailySales": "Ibyacurujwe kuri iyi tariki",
+    "emptyTitle": "Nta byacurujwe kuri iyi tariki",
+    "emptyMessage": "Transactions uzongeraho kuri iyi tariki zizagaragara hano.",
+    "reportEyebrow": "Raporo",
+    "reportTitle": "Raporo yoroshye y'ubucuruzi",
+    "reportText": "Iyi ni EBM-lite igufasha gukurikirana ubucuruzi mbere ya raporo nyayo.",
+    "simpleReport": "Handitswe transactions {{count}} zingana na {{total}}."
+  },
+  "admin": {
+    "eyebrow": "Admin dashboard",
+    "title": "Kurikirana abakoresha, ibigo, imishahara n'uko imisoro yiteguye.",
+    "description": "Reba imikorere ya SmartPayRW mu buryo busukuye kandi bworoshye.",
+    "loading": "Birimo kuzana amakuru ya admin...",
+    "notice": "Amakuru ya admin nyayo ntaboneka, SmartPayRW irerekana amakuru ari muri uyu mwanya.",
+    "cards": {
+      "users": "Abakoresha bose",
+      "usersCaption": "Umukoresha winjiye n'abakozi",
+      "companies": "Ibigo",
+      "payroll": "Imibare y'imishahara",
+      "payrollCaption": "Imishahara igaragara muri uyu mwanya",
+      "taxes": "Imibare y'imisoro",
+      "taxesCaption": "PAYE n'imisoro biri mu nyandiko z'imishahara",
+      "sales": "Ibyacurujwe",
+      "salesCaption": "Transactions za EBM-lite"
+    },
+    "healthEyebrow": "Uko sisitemu ihagaze",
+    "healthTitle": "Uko umwanya witeguye",
+    "health": {
+      "company": "Iyandikwa ry'ikigo",
+      "employees": "Amakuru y'abakozi",
+      "transactions": "Transactions z'ubucuruzi",
+      "ready": "Byiteguye",
+      "pending": "Birategereje"
+    },
+    "workflowEyebrow": "Imikorere",
+    "workflowTitle": "Imirimo ifashwa na AI",
+    "workflowText": "SmartPayRW igabanya akazi: reba, sobanukirwa, ukore icyemezo.",
+    "workflow": {
+      "payrollTitle": "Kureba payroll",
+      "payrollText": "Emeza imishahara n'imisanzu mbere yo kwishyura.",
+      "taxTitle": "Gukurikirana imisoro",
+      "taxText": "Huza TIN, imishahara n'ibisobanuro bya AI."
+    }
+  },
   "payments": {
     "eyebrow": "Amafaranga kuri telefoni",
     "title": "Saba kwishyura",
@@ -254,6 +393,18 @@
       "tin": "Reba TIN y'ikigo cyanjye",
       "employees": "Ni gute nacunga abakozi?"
     },
+    "workflow": {
+      "label": "Ibikorwa umufasha agufashamo",
+      "tax": "Reba imisoro yawe",
+      "taxText": "Reba PAYE, RSSB, pansiyo n'igihe ntarengwa.",
+      "taxPrompt": "Reba imisoro yawe ukoresheje amakuru nyayo y'ikigo cyanjye n'abakozi.",
+      "employees": "Ongeramo abakozi",
+      "employeesText": "Tegura amakuru y'abakozi akenewe muri payroll.",
+      "employeesPrompt": "Mfasha kongeramo abakozi n'imishahara yabo neza.",
+      "payroll": "Kora payroll",
+      "payrollText": "Hindura imishahara ibe PAYE, RSSB n'intambwe zo kwishyura.",
+      "payrollPrompt": "Kora payroll y'ikigo cyanjye kandi werekane amakarita y'imisoro."
+    },
     "cards": {
       "companyInfo": "Amakuru y'ikigo",
       "payrollExposure": "Ibyerekeye imishahara",
@@ -288,7 +439,7 @@
   "tin": {
     "eyebrow": "Ubusesenguzi bwa TIN",
     "title": "Isesengura rya TIN y'ikigo",
-    "description": "Sesengura TIN y'ikigo kugira ngo ubone inshingano z'imishahara, ibyago bishoboka, n'igereranya ry'ukwezi. Iyo serivisi nyayo itabonetse, SmartPayRW ikoresha amakuru y'igerageza.",
+    "description": "Sesengura TIN y'ikigo kugira ngo ubone inshingano z'imishahara, ibyago bishoboka n'amakuru ava kuri seriveri ihujwe.",
     "inputLabel": "Nomero ya TIN y'ikigo",
     "placeholder": "Andika TIN y'imibare 9",
     "analyze": "Sesengura TIN",
