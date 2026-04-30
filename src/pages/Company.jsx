@@ -1,17 +1,11 @@
 // @ts-nocheck
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { BadgeCheck, BriefcaseBusiness, Building2, ReceiptText } from "lucide-react";
 import useAuth from "../hooks/useAuth.js";
-import { getApiErrorMessage } from "../services/api.js";
 import { registerCompanyRequest } from "../services/company.api.js";
 import { getActiveCompany, hasCompany, normalizeCompany, saveStoredCompany } from "../utils/companyData.js";
-
-const initialForm = {
-  companyName: "",
-  tin: "",
-  businessType: "",
-};
 
 function DetailItem({ icon: Icon, label, value }) {
   return (
@@ -29,16 +23,13 @@ function DetailItem({ icon: Icon, label, value }) {
 
 export default function Company() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { refreshUser, user } = useAuth();
   const [company, setCompany] = useState(() => getActiveCompany(user));
-  const [form, setForm] = useState(() => {
-    const activeCompany = getActiveCompany(user);
-
-    return {
-      companyName: activeCompany?.name || "",
-      tin: activeCompany?.tin || "",
-      businessType: activeCompany?.businessType || "",
-    };
+  const [form, setForm] = useState({
+    name: "",
+    tin: "",
+    businessType: "",
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -50,7 +41,7 @@ export default function Company() {
 
     if (activeCompany) {
       setForm((current) => ({
-        companyName: current.companyName || activeCompany.name || "",
+        name: current.name || activeCompany.name || "",
         tin: current.tin || activeCompany.tin || "",
         businessType: current.businessType || activeCompany.businessType || "",
       }));
@@ -58,8 +49,8 @@ export default function Company() {
   }, [user]);
 
   const canSubmit = useMemo(
-    () => form.companyName.trim() && form.tin.trim() && form.businessType.trim() && !isSubmitting,
-    [form.businessType, form.companyName, form.tin, isSubmitting]
+    () => form.name.trim() && form.tin.trim() && form.businessType.trim(),
+    [form.businessType, form.name, form.tin]
   );
 
   function updateField(field, value) {
@@ -80,7 +71,7 @@ export default function Company() {
 
     try {
       const payload = {
-        companyName: form.companyName.trim(),
+        name: form.name.trim(),
         tin: form.tin.trim(),
         businessType: form.businessType.trim(),
       };
@@ -95,8 +86,12 @@ export default function Company() {
       } catch {
         // The registered company has already been saved locally for this session.
       }
+
+      window.setTimeout(() => {
+        navigate("/", { replace: true, state: { notice: t("company.success") } });
+      }, 700);
     } catch (err) {
-      setError(getApiErrorMessage(err, t("company.submitError")));
+      setError(err.response?.data?.message || "Network error");
     } finally {
       setIsSubmitting(false);
     }
@@ -122,8 +117,8 @@ export default function Company() {
           <label>
             {t("company.name")}
             <input
-              value={form.companyName}
-              onChange={(event) => updateField("companyName", event.target.value)}
+              value={form.name}
+              onChange={(event) => updateField("name", event.target.value)}
               placeholder={t("company.namePlaceholder")}
             />
           </label>
@@ -137,6 +132,7 @@ export default function Company() {
               placeholder={t("company.tinPlaceholder")}
               maxLength={14}
             />
+            <small className="field-helper">{t("company.tinHelper")}</small>
           </label>
 
           <label>
@@ -146,9 +142,10 @@ export default function Company() {
               onChange={(event) => updateField("businessType", event.target.value)}
               placeholder={t("company.businessTypePlaceholder")}
             />
+            <small className="field-helper">{t("company.businessTypeHelper")}</small>
           </label>
 
-          <button type="submit" className="button button--primary company-submit" disabled={!canSubmit}>
+          <button type="submit" className="button button--primary company-submit" disabled={isSubmitting}>
             {isSubmitting ? t("company.submitting") : t("company.submit")}
           </button>
 

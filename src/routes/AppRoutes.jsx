@@ -6,11 +6,13 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 
 const AIChat = lazy(() => import("../pages/AIChat.jsx"));
 const Admin = lazy(() => import("../pages/Admin.jsx"));
+const AdminCompanies = lazy(() => import("../pages/AdminCompanies.jsx"));
 const Business = lazy(() => import("../pages/Business.jsx"));
 const Company = lazy(() => import("../pages/Company.jsx"));
 const Dashboard = lazy(() => import("../pages/Dashboard.jsx"));
 const Employees = lazy(() => import("../pages/Employees.jsx"));
 const Login = lazy(() => import("../pages/auth/Login.jsx"));
+const MyCompany = lazy(() => import("../pages/MyCompany.jsx"));
 const Payments = lazy(() => import("../pages/Payments.jsx"));
 const Pension = lazy(() => import("../pages/Pension.jsx"));
 const Payroll = lazy(() => import("../pages/Payroll.jsx"));
@@ -29,6 +31,7 @@ export default function AppRoutes() {
           <Route element={<AppLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="/company" element={<Company />} />
+            <Route path="/my-company" element={<MyCompany />} />
             <Route path="/tax-dashboard" element={<TaxDashboard />} />
             <Route path="/business" element={<Business />} />
             <Route path="/employees" element={<Employees />} />
@@ -37,6 +40,7 @@ export default function AppRoutes() {
             <Route path="/pension" element={<Pension />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/companies" element={<AdminCompanies />} />
             <Route path="/ai-chat" element={<AIChat />} />
           </Route>
         </Route>

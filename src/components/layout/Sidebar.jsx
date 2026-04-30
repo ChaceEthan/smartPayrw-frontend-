@@ -2,6 +2,7 @@
 import {
   Bot,
   BriefcaseBusiness,
+  Building2,
   ChartNoAxesColumn,
   CreditCard,
   FileText,
@@ -19,6 +20,7 @@ import logoUrl from "../../assets/logo.svg";
 const navItems = [
   { to: "/", labelKey: "nav.dashboard", shortLabelKey: "nav.short.dashboard", icon: LayoutDashboard },
   { to: "/company", labelKey: "nav.company", shortLabelKey: "nav.short.company", icon: BriefcaseBusiness },
+  { to: "/my-company", labelKey: "nav.myCompany", shortLabelKey: "nav.short.myCompany", icon: Building2 },
   { to: "/tax-dashboard", labelKey: "nav.taxDashboard", shortLabelKey: "nav.short.taxDashboard", icon: Landmark },
   { to: "/business", labelKey: "nav.business", shortLabelKey: "nav.short.business", icon: Store },
   { to: "/employees", labelKey: "nav.employees", shortLabelKey: "nav.short.employees", icon: Users },
@@ -27,6 +29,7 @@ const navItems = [
   { to: "/pension", labelKey: "nav.pension", shortLabelKey: "nav.short.pension", icon: PiggyBank },
   { to: "/reports", labelKey: "nav.reports", shortLabelKey: "nav.short.reports", icon: FileText },
   { to: "/admin", labelKey: "nav.admin", shortLabelKey: "nav.short.admin", icon: ShieldCheck },
+  { to: "/admin/companies", labelKey: "nav.adminCompanies", shortLabelKey: "nav.short.adminCompanies", icon: Building2 },
   { to: "/ai-chat", labelKey: "nav.aiChat", shortLabelKey: "nav.short.aiChat", icon: Bot },
 ];
 

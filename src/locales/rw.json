@@ -8,6 +8,7 @@
   "nav": {
     "dashboard": "Imbonerahamwe",
     "company": "Ikigo cyawe",
+    "myCompany": "Ikigo cyawe",
     "taxDashboard": "Imisoro",
     "business": "Ubucuruzi",
     "employees": "Abakozi",
@@ -16,6 +17,7 @@
     "pension": "Pansiyo",
     "reports": "Raporo",
     "admin": "Admin",
+    "adminCompanies": "Ibigo",
     "aiChat": "Umufasha",
     "brandSubtitle": "Serivisi y'imishahara",
     "mainNavigation": "Inzira z'ingenzi",
@@ -23,6 +25,7 @@
     "short": {
       "dashboard": "Ahabanza",
       "company": "Ikigo",
+      "myCompany": "Ikigo",
       "taxDashboard": "Imisoro",
       "business": "Ibyacurujwe",
       "employees": "Abakozi",
@@ -31,6 +34,7 @@
       "pension": "Pansiyo",
       "reports": "Raporo",
       "admin": "Admin",
+      "adminCompanies": "Ibigo",
       "aiChat": "Baza"
     }
   },
@@ -127,13 +131,15 @@
     "namePlaceholder": "Urugero: Kigali Trading Ltd",
     "tin": "TIN",
     "tinPlaceholder": "Andika TIN y'ikigo",
+    "tinHelper": "Shyiramo nimero y'ikigo (TIN)",
     "businessType": "Ubwoko bw'ubucuruzi",
     "businessTypePlaceholder": "Urugero: Ubucuruzi, serivisi, ubwubatsi",
+    "businessTypeHelper": "Urwego rw'ubucuruzi bwawe",
     "submit": "Andikisha ikigo",
     "submitting": "Birimo kwandika...",
     "validation": "Izina ry'ikigo, TIN n'ubwoko bw'ubucuruzi birakenewe.",
     "submitError": "Ntibyakunze kwandikisha ikigo.",
-    "success": "Ikigo cyanditswe neza.",
+    "success": "Ikigo cyanditswe neza",
     "profileEyebrow": "Amakuru y'ikigo",
     "profileTitle": "Ikigo cyawe",
     "profileDescription": "Aya ni yo makuru SmartPayRW ikoresha mu mishahara no mu mufasha.",
@@ -144,6 +150,24 @@
     "status": "Imiterere",
     "noCompanyShort": "Nta kigo kirandikwa",
     "employeesPreview": "Abakozi bawe"
+  },
+  "myCompany": {
+    "eyebrow": "Amakuru y'ikigo",
+    "title": "Ikigo cyawe",
+    "description": "Reba amakuru y'ikigo ahujwe na konti yawe.",
+    "loading": "Birimo kuzana amakuru y'ikigo...",
+    "loadError": "Ntibyakunze kubona amakuru y'ikigo cyawe."
+  },
+  "adminCompanies": {
+    "eyebrow": "Admin",
+    "title": "Ibigo byose",
+    "description": "Reba ibigo byanditswe muri SmartPayRW.",
+    "listEyebrow": "Amakuru y'ibigo",
+    "listTitle": "Urutonde rw'ibigo",
+    "loading": "Birimo kuzana ibigo...",
+    "loadError": "Ntibyakunze kubona ibigo.",
+    "emptyTitle": "Nta bigo biraboneka",
+    "emptyMessage": "Ibigo byanditswe bizagaragara hano."
   },
   "employees": {
     "eyebrow": "Imicungire y'abakozi",
@@ -275,6 +299,7 @@
     "paymentMethod": "Uburyo bwo kwishyura",
     "date": "Itariki",
     "add": "Ongeramo transaction",
+    "adding": "Birimo kongeramo...",
     "validation": "Ibisobanuro n'amafaranga birakenewe.",
     "methods": {
       "cash": "Cash",

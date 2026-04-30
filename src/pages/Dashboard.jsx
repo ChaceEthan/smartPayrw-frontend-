@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   BriefcaseBusiness,
   Building2,
@@ -87,12 +87,22 @@ function percent(value) {
 
 export default function Dashboard() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const company = useMemo(() => getActiveCompany(user), [user]);
   const [employees, setEmployees] = useState([]);
   const [payroll, setPayroll] = useState([]);
   const [notice, setNotice] = useState("");
+  const [successNotice, setSuccessNotice] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (location.state?.notice) {
+      setSuccessNotice(location.state.notice);
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.pathname, location.state, navigate]);
 
   useEffect(() => {
     let isMounted = true;
@@ -251,6 +261,7 @@ export default function Dashboard() {
         </section>
       )}
 
+      {successNotice && <div className="alert alert--success">{successNotice}</div>}
       {notice && <div className="alert alert--error">{notice}</div>}
 
       {!isLoading && (

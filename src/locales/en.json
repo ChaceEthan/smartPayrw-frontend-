@@ -8,6 +8,7 @@
   "nav": {
     "dashboard": "Dashboard",
     "company": "Company",
+    "myCompany": "My Company",
     "taxDashboard": "Tax Dashboard",
     "business": "Business",
     "employees": "Employees",
@@ -16,6 +17,7 @@
     "pension": "Pension",
     "reports": "Reports",
     "admin": "Admin",
+    "adminCompanies": "Companies",
     "aiChat": "AI Chat",
     "brandSubtitle": "Fintech payroll",
     "mainNavigation": "Main navigation",
@@ -23,6 +25,7 @@
     "short": {
       "dashboard": "Home",
       "company": "Company",
+      "myCompany": "Company",
       "taxDashboard": "Tax",
       "business": "Sales",
       "employees": "People",
@@ -31,6 +34,7 @@
       "pension": "RSSB",
       "reports": "Reports",
       "admin": "Admin",
+      "adminCompanies": "Companies",
       "aiChat": "AI"
     }
   },
@@ -127,8 +131,10 @@
     "namePlaceholder": "Example: Kigali Trading Ltd",
     "tin": "TIN",
     "tinPlaceholder": "Enter company TIN",
+    "tinHelper": "Shyiramo nimero y'ikigo (TIN)",
     "businessType": "Business Type",
     "businessTypePlaceholder": "Example: Retail, services, construction",
+    "businessTypeHelper": "Urwego rw'ubucuruzi bwawe",
     "submit": "Register company",
     "submitting": "Registering...",
     "validation": "Company name, TIN, and business type are required.",
@@ -144,6 +150,24 @@
     "status": "Status",
     "noCompanyShort": "No company yet",
     "employeesPreview": "Your employees"
+  },
+  "myCompany": {
+    "eyebrow": "Company profile",
+    "title": "My Company",
+    "description": "View the company details connected to your account.",
+    "loading": "Loading company details...",
+    "loadError": "Unable to load your company details."
+  },
+  "adminCompanies": {
+    "eyebrow": "Admin",
+    "title": "Registered companies",
+    "description": "Review companies registered in SmartPayRW.",
+    "listEyebrow": "Company records",
+    "listTitle": "Company list",
+    "loading": "Loading companies...",
+    "loadError": "Unable to load companies.",
+    "emptyTitle": "No companies found",
+    "emptyMessage": "Registered companies will appear here."
   },
   "employees": {
     "eyebrow": "People operations",
@@ -275,6 +299,7 @@
     "paymentMethod": "Payment method",
     "date": "Date",
     "add": "Add transaction",
+    "adding": "Adding...",
     "validation": "Description and amount are required.",
     "methods": {
       "cash": "Cash",

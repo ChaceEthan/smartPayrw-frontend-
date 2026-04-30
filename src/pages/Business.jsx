@@ -31,6 +31,7 @@ export default function Business() {
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState("");
   const [selectedDate, setSelectedDate] = useState(initialForm.date);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const numericAmount = useMemo(() => Number(String(form.amount).replace(/[^\d.]/g, "")), [form.amount]);
   const reports = useMemo(() => summarizeTransactions(transactions), [transactions]);
@@ -52,6 +53,8 @@ export default function Business() {
       return;
     }
 
+    setIsSubmitting(true);
+
     const nextTransactions = addStoredTransaction({
       description: form.description.trim(),
       amount: numericAmount,
@@ -63,6 +66,7 @@ export default function Business() {
     setSelectedDate(form.date);
     setForm(initialForm);
     setError("");
+    setIsSubmitting(false);
   }
 
   return (
@@ -141,9 +145,9 @@ export default function Business() {
             <input type="date" value={form.date} onChange={(event) => updateField("date", event.target.value)} />
           </label>
 
-          <button type="submit" className="button button--primary business-submit">
+          <button type="submit" className="button button--primary business-submit" disabled={isSubmitting}>
             <Plus size={18} aria-hidden="true" />
-            {t("business.add")}
+            {isSubmitting ? t("business.adding") : t("business.add")}
           </button>
 
           {error && <div className="alert alert--error">{error}</div>}
